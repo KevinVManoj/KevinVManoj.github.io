@@ -1,0 +1,63 @@
+*:not(ul) {
+    background-color: aquamarine;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+}
+
+h2 {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+}
+
+a {
+    text-align: center;
+    color: blueviolet;
+}
+
+.bruh {
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    
+}
+
+.bruhh {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+figure {
+    text-align: center;
+    font-style: italic;
+}
+
+ul {
+    margin: 0; /* Remove default margin */
+    padding: 0;
+    list-style: disc;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    list-style: disc;
+}
+
+.aids {
+    margin-left: 20px;
+}
+
+.boooo {
+    text-align: center;
+}
