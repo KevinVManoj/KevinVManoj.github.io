@@ -1,0 +1,166 @@
+<!DOCTYPE html> 
+<html> 
+      
+<head> 
+    <title> 
+        Set alternate row in table 
+    </title> 
+      
+    <style> 
+        
+    table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h3{
+        text-align: center;
+    }
+
+    th {
+        background-color: black;
+        color: #fff;  
+    }
+
+    tr:nth-child(even) { 
+        background-color: yellow; 
+    } 
+
+    tr:nth-child(odd) { 
+        background-color: orange; 
+    } 
+    </style> 
+</head> 
+  
+<body> 
+    <table border="1" class="a-ok">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+        </tr>
+        <tr>
+            <td>Freddy Fazbear</td>
+            <td>freddy.faz@manojaperture.org</td>
+            <td> $75,000</td>
+        </tr>
+        <tr>
+            <td>Bonnie the Bunny</td>
+            <td>bonnie.bunny@manojaperture.org</td>
+            <td>$70,000</td>
+        </tr>
+        <tr>
+            <td>Chica the Chicken</td>
+            <td>chica.chicken@manojaperture.org</td>
+            <td>$65,000</td>
+        </tr>
+        <tr>
+            <td>Foxy the Pirate</td>
+            <td>foxy.pirate@manojaperture.org</td>
+            <td>$80,000</td>
+        </tr>
+        <tr>
+            <td>Marionette</td>
+            <td>marionette@manojaperture.org</td>
+            <td>$60,000</td>
+        </tr>
+        <tr>
+            <td>Circus Baby</td>
+            <td>circus.baby@manojaperture.org</td>
+            <td>$85,000</td>
+        </tr>
+        <tr>
+            <td>Ballora</td>
+            <td>ballora@manojaperture.org</td>
+            <td>$70,000</td>
+        </tr>
+        <tr>
+            <td>Springtrap</td>
+            <td>springtrap@manojaperture.org</td>
+            <td>$78,000</td>
+        </tr>
+        <tr>
+            <td>Golden Freddy</td>
+            <td>golden.freddy@manojaperture.org</td>
+            <td>$55,000</td>
+        </tr>
+        <tr>
+            <td>Mangle</td>
+            <td>mangle@manojaperture.org</td>
+            <td>$72,000</td>
+        </tr>
+</table>
+
+<h3>Employee Data in Complex Table</h3>
+<figure>
+    <figcaption>Employee Information</figcaption>
+    <table border="1">
+            <tr>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+            </tr>
+            <tr>
+                <td rowspan="1">Boss</td>
+                <td>Freddy Fazbear</td>
+                <td>freddy.faz@manojaperture.org</td>
+                <td> $75,000</td>
+            </tr>
+            <tr>
+                <td rowspan="3">Board of Directors</td>
+                <td>Bonnie the Bunny</td>
+                <td>bonnie.bunny@manojaperture.org</td>
+                <td>$70,000</td>
+            </tr>
+            <tr>
+                <td>Chica the Chicken</td>
+                <td>chica.chicken@manojaperture.org</td>
+                <td>$65,000</td>
+            </tr>
+            <tr>
+                <td>Foxy the Pirate</td>
+                <td>foxy.pirate@manojaperture.org</td>
+                <td>$80,000</td>
+            </tr>
+            <tr>
+                <td rowspan="3">Human Resources</td>
+                <td>Marionette</td>
+                <td>marionette@manojaperture.org</td>
+                <td>$60,000</td>
+            </tr>
+            <tr>
+                <td>Circus Baby</td>
+                <td>circus.baby@manojaperture.org</td>
+                <td>$85,000</td>
+            </tr>
+            <tr>
+                <td>Ballora</td>
+                <td>ballora@manojaperture.org</td>
+                <td>$70,000</td>
+            </tr>
+            <tr>
+                <td rowspan="3">Engineers</td>
+                <td>Springtrap</td>
+                <td>springtrap@manojaperture.org</td>
+                <td>$78,000</td>
+            </tr>
+            <tr>
+                <td>Golden Freddy</td>
+                <td>golden.freddy@manojaperture.org</td>
+                <td>$55,000</td>
+            </tr>
+            <tr>
+                <td>Mangle</td>
+                <td>mangle@manojaperture.org</td>
+                <td>$72,000</td>
+            </tr>
+            <tr>
+                <td colspan="3">Total Annual Salary Budget:</td>
+                <td>$688,000</td>
+            </tr>
+    </table>
+</figure>
+</body>     
+  
+<html> 

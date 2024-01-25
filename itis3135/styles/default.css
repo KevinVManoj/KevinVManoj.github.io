@@ -1,4 +1,4 @@
-* {
+body {
     background-color: aquamarine;
 }
 
@@ -74,3 +74,16 @@ table {
 h3{
     text-align: center;
 }
+
+th {
+    background-color: black;
+    color: #fff;  
+}
+
+tr:nth-child(even) { 
+    background-color: yellow; 
+} 
+
+tr:nth-child(odd) { 
+    background-color: orange; 
+} 
