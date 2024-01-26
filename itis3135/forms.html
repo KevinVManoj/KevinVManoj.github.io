@@ -27,26 +27,26 @@
         <form action="#">
             <fieldset>
                 <legend>General Information</legend>
-                <label> Enter your full name: <input id="fullname" name="fullname" type="text" required></label>
-                <label> Enter your phone number: <input id="phonenumber" name="phonenumber" type="number" required></label>
-                <label> Enter your email address: <input id="emailaddress" name="fullname" type="email" required></label>
+                <label for="fullname"> Enter your full name: <input id="fullname" name="fullname" type="text" required></label>
+                <label for="phonenumber"> Enter your phone number: <input id="phonenumber" name="phonenumber" type="number" required></label>
+                <label for="emailaddress"> Enter your email address: <input id="emailaddress" name="emailaddress" type="email" required></label>
             </fieldset>
             <fieldset>
                 <legend>What type of Alternate have you been in contact with?</legend>
-                <label><input id="type1" type="radio" name="type" class="radiooptions" checked>Type One: Doppelgänger</label> 
-                <label><input id="type2" type="radio" name="type" class="radiooptions" >Type Two: Unspeakable</label>
-                <label><input id="type3" type="radio" name="type" class="radiooptions" >Type Three: Flawed Impersonators</label>
-                <label><input id="type4" type="radio" name="type" class="radiooptions" >Type Four: Tulpa</label>
+                <label for="type1"><input id="type1" type="radio" name="type1" class="radiooptions" checked>Type One: Doppelgänger</label> 
+                <label for="type2"><input id="type2" type="radio" name="type2" class="radiooptions" >Type Two: Unspeakable</label>
+                <label for="type3"><input id="type3" type="radio" name="type3" class="radiooptions" >Type Three: Flawed Impersonators</label>
+                <label for="type4"><input id="type4" type="radio" name="type4" class="radiooptions" >Type Four: Tulpa</label>
             </fieldset>
             <fieldset>
                 <legend>Have you met with any of these individuals?</legend>
-                <label><input id="option1" type="checkbox" name="check" class="checkerboxes">Sarah Heathcliff</label>
-                <label><input id="option2" type="checkbox" name="check" class="checkerboxes">Adam Murray</label>
-                <label><input id="option1" type="checkbox" name="check" class="checkerboxes">Thatcher Davis
+                <label for="check1"><input id="check1" type="checkbox" name="check1" class="checkerboxes">Sarah Heathcliff</label>
+                <label for="check2"><input id="check2" type="checkbox" name="check2" class="checkerboxes">Adam Murray</label>
+                <label for="check3"><input id="check3" type="checkbox" name="check3" class="checkerboxes">Thatcher Davis
             </fieldset>
             <fieldset>
                 <legend>Which County do you come from?</legend>
-                <select>
+                <select id="countySelect" name="county">
                     <option value="">Select the County</option>
                     <option value="1">Mandela</option>
                     <option value="2">Bythorne</option>
@@ -55,7 +55,7 @@
                 </select>
             </fieldset>
             <fieldset>
-                <label>Please describe your encounter with the alternate: </label>
+                <label for="encounter">Please describe your encounter with the alternate: </label>
                 <textarea id="encounter" name="encounter" rows="5" cols="30" placeholder="Stulte pastores. maximum timorem cognoscam. Sciam te maximum timorem. Expergiscere, Joseph."></textarea>
             </fieldset>
             <input type="reset" value="Reset">

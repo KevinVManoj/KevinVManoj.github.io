@@ -91,5 +91,14 @@ tr:nth-child(odd) {
 label {
     display: block;
     margin: 0.5rem 0;
-  }
+}
+
+input[type="reset"], input[type="submit"] {
+    padding: 10px 10px;
+    font-size: 15px;
+    background-color: red;
+    font-weight: bold;
+    color: white;
+}
+
   
