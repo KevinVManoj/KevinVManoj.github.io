@@ -5,16 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manoj Aperature Incorporated</title>
     <style>
-        * {
-            background-color: black;
+
+        @font-face {
+            font-family: 'Oswald';
+            src: url('path/to/oswald.woff2') format('woff2'),
+                url('path/to/oswald.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body:not(h1, h2) {
+            background: hsla(238, 100%, 71%, 1);
+            background: linear-gradient(90deg, hsla(238, 100%, 71%, 1) 0%, hsla(295, 100%, 84%, 1) 100%);
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
         }
         
-        p {
-            color: red;
+        h1 {
+            color: rgb(0, 8, 255);
+            padding-right: 55px;
+            font-family: Blippo, fantasy;
         }
+
+        h2{
+            text-align: center;
+            color:rgb(52, 58, 240)
+        }
+
+        .logo {
+            width: 50px;
+            float: left;
+        }
+
+        .company-image {
+            float: right; 
+            max-width: 20%; 
+            margin-left: 0px; 
+        }
+
+        .contact-info {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid #333;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 20px; 
+        }
+
     </style>
 </head>
 <body>
-    <p> This is the website for Manoj Aperature Incorporated</p>
+    <header>
+        <img class="logo" src="canvas.png" alt="Manoj Aperature Inc Logo">
+        <h1> Manoj Aperature Incorporated</h1>
+    </header>
+    <h2>Manoj Aperature Incorporated's Development Services</h2> 
+        <p class="intro">Manoj Aperture Incorporated is a dynamic development firm specializing in innovative solutions tailored to diverse client needs. Our seasoned tech experts craft robust and scalable web, mobile, and custom software solutions. Committed to excellence and client satisfaction, we prioritize efficiency, reliability, and innovation from concept to implementation. With an agile and client-centric approach, we empower businesses for success in the digital age. As your trusted development partner, Manoj Aperture transforms ideas into reality, setting us apart as the go-to choice for cutting-edge solutions.</p>
+        <img class="company-image" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mdHdhcmUlMjBjb21wYW55fGVufDB8fDB8fHww">
+            <ul class="amazingList">
+                <li class="customBullet">Strategic problem-solving tailored to your business needs</li>
+                <li class="customBullet">Cutting-edge technologies for unmatched innovation</li>
+                <li class="customBullet">Exceptional team of seasoned tech experts</li>
+                <li class="customBullet">Agile and adaptable development practices</li>
+                <li class="customBullet">Client-centric approach for personalized solutions</li>
+                <li class="customBullet">Robust and scalable software solutions</li>
+                <li class="customBullet">Efficient project delivery from concept to implementation</li>
+                <li class="customBullet">Reliable and secure development practices</li>
+                <li class="customBullet">Innovation-driven mindset shaping the digital future</li>
+                <li class="customBullet">Transformative capabilities to propel your business forward</li>
+            </ul>
+            
+        <p class="intro">At Manoj Aperture Incorporated, our primary goal is to serve as your strategic technology partner, offering tailored solutions that align with your business objectives. Whether you're looking to enhance your online presence, streamline internal processes, or embark on a digital transformation journey, we're here to guide you every step of the way. Our commitment to excellence, innovative mindset, and client-centric approach ensure that our clients not only meet but exceed their technological aspirations. Let's collaborate to turn your ideas into reality and navigate the ever-evolving digital landscape together.</p>    
+    <div class="contact-info">
+        <h3>Contact Information:</h3>
+        <p>Email: info@manojaperture.com</p>
+        <p>Phone: +1 (123) 456-7890</p>
+        <p>Address: 123 Tech Lane, Innovation City, Digital Realm</p>
+    </div>
 </body>
 </html>
