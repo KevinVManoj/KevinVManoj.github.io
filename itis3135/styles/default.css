@@ -43,15 +43,13 @@ figure {
 }
 
 ul {
-    margin: 0; /* Remove default margin */
+    margin: 0; 
     padding: 0;
-    list-style: disc;
 }
 
 li {
-    margin: 0;
+    margin: 10px;
     padding: 0;
-    list-style: disc;
 }
 
 .aids {
@@ -101,7 +99,9 @@ input[type="reset"], input[type="submit"] {
     color: white;
 }
 
-/* 
-Color Gradient:
+a { color:red } /* Globally */
 
-*/
+a:visited { text-decoration: none; color:red; }
+a:hover { text-decoration: none; color:blue; }
+a:focus { text-decoration: none; color:yellow; }
+a:hover, a:active { text-decoration: none; color:black }
