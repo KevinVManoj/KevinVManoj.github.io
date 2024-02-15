@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kevin Manoj's Keen Monkey || ITIS 3135 Homepage</title>
     <link rel="stylesheet" href="styles/default.css" />
+    <script src="scripts/defaultscripts.js" defer></script>
+    <style>
+        .input {
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <div data-include="components/header.html"></div>
     <main>
         <h2>ITIS 3135 Home</h2>
         <p>This is all the content for my ITIS 3135 class</p>
+        <h3 id="datetime"></h3>
+        <input id="userName">
+        <input id="userMood">
+        <button type="button" onclick="userGreeting()">Submit</button>
+        <p id="siteResponse"></p>
     </main>
     <div data-include="components/footer.html"></div>
     <script src="scripts/HTMLInclude.js" defer></script>
