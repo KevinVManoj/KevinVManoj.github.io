@@ -22,7 +22,7 @@
                 <label for="image" >Image:</label>
                 <input type="file" id="image" class="image" accept="image/png, image/jpeg" required>
 
-                <label for="imageCaption" >Mascot:</label>
+                <label for="imageCaption" >Image Caption:</label>
                 <input type="text" id="imageCaption" class="imageCaption" required>
 
                 <label for="personalBackground" >Personal Background:</label>
@@ -48,41 +48,6 @@
                 <div id="coursesButtons">
                     <input type="button" id="coursesTaking" class="coursesTaking" value="Insert Course" required>
                 </div>
-                
-                <script>
-                    const courses = document.getElementById("coursesTaking");
-                    const coursesInput = document.getElementById("coursesInput");
-                    const coursesButton = document.getElementById("coursesButtons");
-                    var count = 0;
-                    let status = false;
-                    courses.addEventListener("click", () => {
-                        instantiateDelete();
-                        var newInput = document.createElement('input');
-                        newInput.type = 'text';
-                        newInput.id = 'coursesUserTaken';
-                        newInput.className = 'coursesUserTaken';
-                        coursesInput.appendChild(newInput);
-                        count++;
-                    })
-
-                    function instantiateDelete() {
-                        if(count >= 1 && status === false) {
-                            var deleteButton = document.createElement('input');
-                            deleteButton.type = 'button';
-                            deleteButton.id = 'deleteButton';
-                            deleteButton.className = 'deleteButton';
-                            deleteButton.value = 'Delete';
-                            coursesButton.appendChild(deleteButton)
-                            status = true;
-                            deleteButton.addEventListener("click", () => {
-                                if (coursesInput.lastChild) {
-                                    coursesInput.removeChild(coursesInput.lastChild);
-                                }
-                            });
-                        }    
-                    }
-                     
-                </script>
 
                 <label for="funnyThing" >Funny Statement:</label>
                 <input type="text" id="funnyThing" class="funnyThing">
@@ -95,12 +60,13 @@
                     "I understand that what is on this page is not password protected and I will not put anything here that I don’t want publicly available."
                 </label><br>              
 
-                <input type="submit" value="Submit">
-                <input type="reset" value="Reset">
+                <input type="submit" id="submit" value="Submit">
+                <input type="reset" id="reset" value="Reset">
             </fieldset>
         </form>
     </main>
     <div data-include="components/footer.html"></div>
     <script src="scripts/HTMLInclude.js"></script>
+    <script src="scripts/survey.js"></script>
 </body>
 </html>
