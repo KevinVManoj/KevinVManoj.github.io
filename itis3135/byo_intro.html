@@ -41,17 +41,47 @@
                 <input type="text" id="primaryComputer" class="primaryComputer" required>
 
                 <label for="coursesTaking">Courses being taken:</label>
-                <div>
+                <div id="coursesInput" class="coursesInput">
 
                 </div>
-                <input type="button" id="coursesTaking" class="coursesTaking" value="Insert Course" required>
+
+                <div id="coursesButtons">
+                    <input type="button" id="coursesTaking" class="coursesTaking" value="Insert Course" required>
+                </div>
                 
                 <script>
-                    const courses = document.getElementById("CoursesTaking");
-                    const coursesInput = document.getElementById("")
+                    const courses = document.getElementById("coursesTaking");
+                    const coursesInput = document.getElementById("coursesInput");
+                    const coursesButton = document.getElementById("coursesButtons");
+                    var count = 0;
+                    let status = false;
                     courses.addEventListener("click", () => {
-
+                        instantiateDelete();
+                        var newInput = document.createElement('input');
+                        newInput.type = 'text';
+                        newInput.id = 'coursesUserTaken';
+                        newInput.className = 'coursesUserTaken';
+                        coursesInput.appendChild(newInput);
+                        count++;
                     })
+
+                    function instantiateDelete() {
+                        if(count >= 1 && status === false) {
+                            var deleteButton = document.createElement('input');
+                            deleteButton.type = 'button';
+                            deleteButton.id = 'deleteButton';
+                            deleteButton.className = 'deleteButton';
+                            deleteButton.value = 'Delete';
+                            coursesButton.appendChild(deleteButton)
+                            status = true;
+                            deleteButton.addEventListener("click", () => {
+                                if (coursesInput.lastChild) {
+                                    coursesInput.removeChild(coursesInput.lastChild);
+                                }
+                            });
+                        }    
+                    }
+                     
                 </script>
 
                 <label for="funnyThing" >Funny Statement:</label>
