@@ -34,33 +34,31 @@ function instantiateDelete() {
     }    
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const fName = document.getElementById("fName");
-    const mascot = document.getElementById("mascot");
-    const image = document.getElementById("image");
-    const imageCaption = document.getElementById("imageCaption");
-    const personalBackground = document.getElementById("personalBackground");
-    const professionalBackground = document.getElementById("professionalBackground");
-    const academicBackground = document.getElementById("academicBackground");
-    const backgroundDevelopment = document.getElementById("backgroundDevelopment");
-    const primaryComputer = document.getElementById("primaryComputer");
-    const funnyThing = document.getElementById("funnyThing");
-    const anythingElse = document.getElementById("anythingElse");
-    const submit = document.getElementById("submit");
-    const introBox = document.getElementById("Introduction");
-    const coursesInput = document.getElementById("coursesInput");
+const fName = document.getElementById("fName");
+const mascot = document.getElementById("mascot");
+const image = document.getElementById("image");
+const imageCaption = document.getElementById("imageCaption");
+const personalBackground = document.getElementById("personalBackground");
+const professionalBackground = document.getElementById("professionalBackground");
+const academicBackground = document.getElementById("academicBackground");
+const backgroundDevelopment = document.getElementById("backgroundDevelopment");
+const primaryComputer = document.getElementById("primaryComputer");
+const funnyThing = document.getElementById("funnyThing");
+const anythingElse = document.getElementById("anythingElse");
+const submit = document.getElementById("submit");
+const introBox = document.getElementById("introduction");
+const form = document.getElementById("form");
 
     function displayCourses() {
         let coursesListHTML = ''; 
-        for(let x = 0; x < coursesInput.children.length; x++) {
-            coursesListHTML += `<li>${coursesInput.children[x].textContent}</li>`;
+        for(let x = 0; x < coursesInput.children.length-1; x++) {
+            coursesListHTML += `<li>${coursesInput.children[x].value}</li>`;
         }
         return coursesListHTML;
     }
 
-    document.getElementById("form").addEventListener("submit", function(event) {
+    form.addEventListener("submit", function(event) {
         event.preventDefault();
-
         const courseListHTML = displayCourses();
         
         introBox.innerHTML = '';
@@ -87,4 +85,4 @@ document.addEventListener("DOMContentLoaded", function() {
             </ol>
         `;
     });
-});
+    console.log('The DOM is fully loaded and parsed');
