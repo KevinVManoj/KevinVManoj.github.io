@@ -3,7 +3,6 @@ body {
     max-width: 1200px; 
     width: 90%; 
     margin: 5px auto; 
-    text-align: center; 
 }
 
 main {
@@ -67,6 +66,14 @@ tr:nth-child(odd) {
 label {
     display: block;
     margin: 0.5rem 0;
+}
+
+input[type="text"] {
+    border: 2px solid #4CAF50; 
+    background-color: #f8f8f8; 
+    padding: 10px; 
+    font-size: 14px; 
+    text-align: center;
 }
 
 input[type="reset"], input[type="submit"] {

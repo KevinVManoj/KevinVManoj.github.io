@@ -1,12 +1,13 @@
 const coursesInput = document.getElementById("coursesInput");
 const coursesButton = document.getElementById("coursesButtons");
+const coursesTaking = document.getElementById("coursesTaking");
 var count = 0;
 
 function attachCoursesButtonEventListener() {
     const coursesTakingButton = document.getElementById("coursesTaking");
     if (coursesTakingButton) {
         coursesTakingButton.removeEventListener("click", addCourseInput); 
-        coursesTakingButton.addEventListener("click", addCourseInput);
+        coursesTakingButton.addEventListener("click", addCourseInput); 
     }
 }
 
@@ -30,6 +31,8 @@ function instantiateDelete() {
         deleteButton.className = 'deleteButton';
         deleteButton.value = 'Delete';
         coursesButton.appendChild(deleteButton);
+        var spacing = document.createElement('br');
+        coursesButton.appendChild(spacing);
 
         deleteButton.addEventListener("click", () => {
             if (coursesInput.lastChild) {
@@ -43,6 +46,8 @@ function instantiateDelete() {
         });
     }    
 }
+
+
 
 const fName = document.getElementById("fName");
 const mascot = document.getElementById("mascot");
@@ -159,6 +164,10 @@ const resetAgain = document.getElementById("resetAgain");
             while (coursesInput.firstChild) {
                 coursesInput.removeChild(coursesInput.firstChild);
             }
-            attachCoursesButtonEventListener();
         }
     });
+
+document.addEventListener('DOMContentLoaded', function() {
+    attachCoursesButtonEventListener();
+});
+    
