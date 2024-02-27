@@ -90,7 +90,6 @@ const resetAgain = document.getElementById("resetAgain");
             <button onClick="window.location.href=window.location.href">Refresh Page</button>
         `;
     });
-<<<<<<< HEAD
 
     document.addEventListener('click', function(event) {
         if (event.target && event.target.id === 'resetAgain') {
@@ -146,11 +145,9 @@ const resetAgain = document.getElementById("resetAgain");
                 <input type="submit" id="submit" value="Submit">
                 <input type="reset" id="reset" value="Reset"></input> 
                 `; 
-            while (coursesInput.firstChild) {
-                coursesInput.removeChild(coursesInput.firstChild);
-            }
-            attachCoursesButtonEventListener();
-    
+        }
+    })
+
     function displayCourses() {
         let coursesListHTML = ''; 
         for(let x = 0; x < coursesInput.children.length-1; x++) {
