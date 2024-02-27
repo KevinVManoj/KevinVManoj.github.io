@@ -3,13 +3,7 @@ const coursesButton = document.getElementById("coursesButtons");
 const coursesTaking = document.getElementById("coursesTaking");
 var count = 0;
 
-function attachCoursesButtonEventListener() {
-    const coursesTakingButton = document.getElementById("coursesTaking");
-    if (coursesTakingButton) {
-        coursesTakingButton.removeEventListener("click", addCourseInput); 
-        coursesTakingButton.addEventListener("click", addCourseInput); 
-    }
-}
+coursesTaking.addEventListener("click", addCourseInput); 
 
 function addCourseInput() {
     instantiateDelete();
@@ -47,8 +41,6 @@ function instantiateDelete() {
     }    
 }
 
-
-
 const fName = document.getElementById("fName");
 const mascot = document.getElementById("mascot");
 const image = document.getElementById("image");
@@ -64,14 +56,6 @@ const submit = document.getElementById("submit");
 const introBox = document.getElementById("introduction");
 const form = document.getElementById("form");
 const resetAgain = document.getElementById("resetAgain");
-
-    function displayCourses() {
-        let coursesListHTML = ''; 
-        for(let x = 0; x < coursesInput.children.length-1; x++) {
-            coursesListHTML += `<li>${coursesInput.children[x].value}</li>`;
-        }
-        return coursesListHTML;
-    }
 
     form.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -103,9 +87,10 @@ const resetAgain = document.getElementById("resetAgain");
                 <li><b>Funny/Interesting Item to Remember me by:</b> ${funnyThing.value}</li> 
                 <li><b>I'd also like to Share:</b> ${anythingElse.value}</li>
             </ol>
-            <button type="button" id="resetAgain">Restart</button> 
+            <button onClick="window.location.href=window.location.href">Refresh Page</button>
         `;
     });
+<<<<<<< HEAD
 
     document.addEventListener('click', function(event) {
         if (event.target && event.target.id === 'resetAgain') {
@@ -165,10 +150,13 @@ const resetAgain = document.getElementById("resetAgain");
                 coursesInput.removeChild(coursesInput.firstChild);
             }
             attachCoursesButtonEventListener();
-        }
-    });
-
-document.addEventListener('DOMContentLoaded', function() {
-    attachCoursesButtonEventListener();
-});
+=======
     
+    function displayCourses() {
+        let coursesListHTML = ''; 
+        for(let x = 0; x < coursesInput.children.length-1; x++) {
+            coursesListHTML += `<li>${coursesInput.children[x].value}</li>`;
+>>>>>>> b8489ae5772b81b6e83a96dab4e825d33193213a
+        }
+        return coursesListHTML;
+    }
