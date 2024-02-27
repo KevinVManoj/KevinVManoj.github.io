@@ -164,6 +164,7 @@ const resetAgain = document.getElementById("resetAgain");
             while (coursesInput.firstChild) {
                 coursesInput.removeChild(coursesInput.firstChild);
             }
+            attachCoursesButtonEventListener();
         }
     });
 
