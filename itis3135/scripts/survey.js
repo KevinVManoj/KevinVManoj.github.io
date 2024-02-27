@@ -150,13 +150,11 @@ const resetAgain = document.getElementById("resetAgain");
                 coursesInput.removeChild(coursesInput.firstChild);
             }
             attachCoursesButtonEventListener();
-=======
     
     function displayCourses() {
         let coursesListHTML = ''; 
         for(let x = 0; x < coursesInput.children.length-1; x++) {
             coursesListHTML += `<li>${coursesInput.children[x].value}</li>`;
->>>>>>> b8489ae5772b81b6e83a96dab4e825d33193213a
         }
         return coursesListHTML;
     }
