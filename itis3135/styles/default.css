@@ -157,7 +157,7 @@ fieldset {
 .calculator-body {
     background-color: black;
     width: 700px;
-    height: 700px;
+    height: 810px;
     margin: auto;
     overflow: auto;
     border: 2px solid #000; 
@@ -168,7 +168,7 @@ fieldset {
 .calculator-display {
     background-color: grey;
     width: 600px;
-    height: 100px;
+    height: 110px;
     margin-top: 50px;
     margin-left: 50px;
 }
@@ -197,4 +197,8 @@ fieldset {
 
 .clear {
     background-color: red;
+}
+
+.equals {
+    width: 421px;
 }
