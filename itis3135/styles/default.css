@@ -154,3 +154,47 @@ fieldset {
     }
 }
 
+.calculator-body {
+    background-color: black;
+    width: 700px;
+    height: 700px;
+    margin: auto;
+    overflow: auto;
+    border: 2px solid #000; 
+    border-radius: 100px; 
+    padding: 20px;
+}
+
+.calculator-display {
+    background-color: grey;
+    width: 600px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.calculator-display-input {
+    color:white;
+    text-align: left;
+
+}
+
+.calculator-display-output {
+    color:white ;
+    text-align: right;
+}
+
+.calculator-button {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+    margin-left: 57px;
+}
+
+.function {
+    background-color: orange;
+}
+
+.clear {
+    background-color: red;
+}
