@@ -4,7 +4,6 @@ const output = document.getElementById('calculator-display-output');
 let firstNum = false
 
 buttons.forEach(button => {
-    
     button.addEventListener("click", ()=> {
         const buttonValue = button.getAttribute('value');
         
@@ -24,6 +23,13 @@ buttons.forEach(button => {
                 output.innerText = "";
             }
             return;
+        }
+        
+        if(buttonValue === "+"||buttonValue === "-"||buttonValue === "*"||buttonValue === "/") {
+            if(!(output.innerText === "")) {
+                input.innerText = output.innerText;
+                output.innerText = "";
+            }
         }
         
         if(!firstNum){
