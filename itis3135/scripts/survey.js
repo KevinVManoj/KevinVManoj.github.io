@@ -151,7 +151,9 @@ const resetAgain = document.getElementById("resetAgain");
     function displayCourses() {
         let coursesListHTML = ''; 
         for(let x = 0; x < coursesInput.children.length-1; x++) {
-            coursesListHTML += `<li>${coursesInput.children[x].value}</li>`;
+            if(coursesInput.children[x].value) {
+                coursesListHTML += `<li>${coursesInput.children[x].value}</li>`;
+            }
         }
         return coursesListHTML;
     }
