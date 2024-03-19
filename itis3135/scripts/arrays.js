@@ -12,7 +12,7 @@ const average = document.getElementById("average");
 const highest = document.getElementById("highest");
 
 
-//nameArray.focus();
+nameArray.focus();
 
 submit.addEventListener("click", function(event) {
     event.preventDefault(); 
