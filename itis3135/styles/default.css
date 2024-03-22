@@ -1,8 +1,8 @@
 body {
-    background-color: #0000FF;
+    background-color: #5050fc;
     max-width: 1200px; 
     width: 95%; 
-    margin: 5px auto; 
+    margin: 10%; 
 }
 
 main {
@@ -141,7 +141,7 @@ fieldset {
     body, .bruhh, .WE, .aids {
         width: 90%;
         margin: 3px auto;
-        background-color:#2e2ef7;
+        background-color:#6464eb;
     }
 }
 
@@ -150,7 +150,7 @@ fieldset {
     body, .bruhh, .WE, .aids {
         width: 90%;
         margin: 3px auto;
-        background-color:#7EC8E3;
+        background-color:#4096b6;
     }
 }
 
