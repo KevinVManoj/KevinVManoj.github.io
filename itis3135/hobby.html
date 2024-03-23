@@ -14,6 +14,7 @@
         header button {
             font-size: 20px;
             color: blue;
+            display: flexbox;
         }
 
         h2 {
@@ -67,20 +68,20 @@
     <header>
         <h1>Kevin's Working Out Page</h1>
         <nav>
-            <button onclick="showSection('What')">What (Home)</button>
+            <button id="What">What (Home)</button>
             💪🏼
-            <button onclick="showSection('Who')">Who</button>
+            <button id="Who">Who</button>
             💪🏼
-            <button onclick="showSection('When')">When</button>
+            <button id="When">When</button>
             💪🏼
-            <button onclick="showSection('How')">How</button>
+            <button id="How">How</button>
             💪🏼
-            <button onclick="showSection('Why')">Why</button>
+            <button id="Why">Why</button>
             💪🏼
-            <button onclick="showSection('AI')">Ai Prompts</button>
+            <button id="AI">Ai Prompts</button>
         </nav>
     </header>
-    <section id="What" class="section" >
+    <section id="What" class="section">
         <h2>What is Working Out?</h2>
         <p>Working out, also known as physical exercise, is the practice of engaging in physical activities to improve health, fitness, and overall well-being. This can include a wide range of activities such as weightlifting, running, yoga, and more. The goal is to strengthen the body, increase endurance, enhance flexibility, and promote mental health. Regular workouts are essential for maintaining a balanced lifestyle and can help prevent various health issues while also improving mood and energy levels. Whether you're a beginner or a seasoned athlete, incorporating exercise into your daily routine is a key component of a healthy lifestyle.</p>
         <p>I dedicate myself to regular exercise and bodybuilding, with the goal of sculpting a better physique that embodies both aesthetics and strength. My routine is a balanced mix of resistance training, cardio workouts, and a nutritional plan tailored to fuel my body's needs. This disciplined approach allows me to enhance muscle definition, reduce body fat, and improve my overall physical performance. Through this journey, I've not only transformed my body into a stronger, more resilient version of itself but have also gained confidence and a sense of mental well-being. My commitment to fitness is a testament to the power of persistence, discipline, and my personal desire to achieve the best physical version of myself.</p>
@@ -89,7 +90,7 @@
             <figcaption id="image1f">Ai image of a guy working out</figcaption>
         </figure>
     </section>
-    <section id="Who" class="section" >
+    <section id="Who" class="section" style="display: none;">
         <h2>Who am I?</h2>
         <p>My name is Kevin Manoj, I am a Sophmore at the University of North Carolina at Charlotte studying Computer Science with a Concentration of Cyber Security. I am 20 years old, 180 pounds and 5'9. My max squat is 140 pounds, my max bench is 110 pounds, and I have yet to actually do a deadlift. </p>
         <p>I have had a weird history with working out, I started the summer between my senior year and freshman year at college at a Planet Fitness. The, when I arrived here at UNCC, I went here and there but nothing commited. It was only this semester where I realized I needed to take my health seriously and this included eating better and more working out.</p>
@@ -98,16 +99,16 @@
             <figcaption id="image1f">Me :D</figcaption>
         </figure>
     </section>
-    <section id="When" class="section" >
+    <section id="When" class="section" style="display: none;">
         <h2>When do I work out?</h2>
         <p>I work out 3 times a week; usually Monday, Wednesday, and Friday. I tend to work out around 8:30pm to 9:30pm-10pm. I try and do some cardio on the days I dont work out (unless I just hit legday) such as the treadmill, stairmaster, or the bike. </p>
         <p>Below I have attached an image of the UREC (University Recreation Center):</p>
         <figure id="image1">
             <img src="hobby/images/UREC.jpg" alt="UREC Building" id="image1">
-            <figcaption id="image1f">Me :D</figcaption>
+            <figcaption id="image1f">UREC Building</figcaption>
         </figure>
     </section>
-    <section id="How" class="section" >
+    <section id="How" class="section" style="display: none;">
         <h2>How do I work out?</h2>
         <p>I do a 3 day split where I hit Legs, Chest and biceps, and Back and Shoulders </p>
         <p>Below I have A table that shows what I hit each day at the Gym:</p>
@@ -162,8 +163,46 @@
             </tr>
         </table>
     </section>
+    <section id="Why" class="section"style="display: none;" >
+        <h2>Why do I work out?</h2>
+        <p>I come from a long line of heart problems, I don't want to have to beocme dependant on medications, treatments, and the sort. I want to be able to reach 40 and not have to worry that my health is going down the gutter</p>
+        <p>Also with how America has a high rate of obesity, coupled with the horrible things in our food, this is one of the ways I can fight back</p>
+        <figure id="image1">
+            <img src="hobby/images/HealthWork.webp" alt="Health Photo" id="image1">
+            <figcaption id="image1f">The Combo of Health and Working Out</figcaption>
+        </figure>
+    </section>
+    <section id="AI" class="section" style="display: none;">
+        <h2>Ai Prompts</h2>
+        <p>I am making a website about Working out, give me a quick paragraph to explain what Working Out is.</p>
+        <p>I do regular exercise and body building to make a better physique, make a small paragraph about that</p>
+        <p>Make an image of a guy working out</p>
+        <p>Create an image represnting working out and health</p>
+        <p>How do I make a document element to call all my buttons?</p>
+        <p>How do I make an eventlistener for each of my buttons</p>
+    </section>
     <footer>
         <p>Designed by <a href="ManojAperatureInc.com/" target="_blank">Manoj Aperature Inc.</a>© 2024</p>
     </footer>
+    <script>
+        const sections = document.querySelectorAll('.section'); 
+        const buttons = document.getElementsByTagName("button");
+    
+        Array.from(buttons).forEach(button => {
+            button.addEventListener("click", function() {
+                showSection(button.id);
+            });
+        });
+    
+        function showSection(id) {
+            sections.forEach(element => {
+                if(element.id === id) {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
