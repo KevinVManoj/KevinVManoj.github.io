@@ -82,19 +82,19 @@
     <header>
         <h1>Kevin's Working Out Page</h1>
         <nav>
-            <button id="What">What (Home)</button>
+            <button name="What">What (Home)</button>
             💪🏼
-            <button id="Who">Who</button>
+            <button name="Who">Who</button>
             💪🏼
-            <button id="When">When</button>
+            <button name="When">When</button>
             💪🏼
-            <button id="Where">Where</button>
+            <button name="Where">Where</button>
             💪🏼
-            <button id="How">How</button>
+            <button name="How">How</button>
             💪🏼
-            <button id="Why">Why</button>
+            <button name="Why">Why</button>
             💪🏼
-            <button id="AI">Ai Prompts</button>
+            <button name="AI">Ai Prompts</button>
         </nav>
     </header>
     <main>
@@ -237,23 +237,24 @@
     </footer>
     <script>
         const sections = document.querySelectorAll('.section'); 
-        const buttons = document.getElementsByTagName("button");
+        const buttons = document.querySelectorAll("button");
     
-        Array.from(buttons).forEach(button => {
+        buttons.forEach(button => {
             button.addEventListener("click", function() {
-                showSection(button.id);
+                const sectionId = button.getAttribute('name'); // Get the name attribute of the button
+                showSection(sectionId);
             });
         });
     
         function showSection(id) {
-            sections.forEach(element => {
-                if(element.id === id) {
-                    element.style.display = "block";
+            sections.forEach(section => {
+                if(section.id === id) {
+                    section.style.display = "block";
                 } else {
-                    element.style.display = "none";
+                    section.style.display = "none";
                 }
             });
         }
-    </script>
+    </script>    
 </body>
 </html>
