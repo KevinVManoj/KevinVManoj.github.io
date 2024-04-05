@@ -8,41 +8,57 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById(containerId);
-                let addedSeparator = false; // Track if the separator was added for the current item
-
                 if(containerId === "dynamic-header") {
-                    container.innerHTML += `<h1>Kevin Manoj 🐒 Keen Monkey ITIS-3135</h1>`;
+                    container.innerHTML = `<h1>Kevin Manoj 🐒 Keen Monkey ITIS-3135</h1>` + container.innerHTML;
                 }
                 
-                const navElement = document.createElement("nav");
-                container.appendChild(navElement);
+                const fragment = document.createDocumentFragment();
+                let needSeparator = false; // Initially, no separator is needed
+                let isFirstValidationLink = true; // Track the first validation link
 
-                data.forEach((item, index) => {
+                data.forEach(item => {
+                    // Skip specific items to be added manually later
+                    if (["Manoj Aperature Inc.", "Certified in RWD", "Certified in JS"].includes(item.name)) {
+                        return; // Skip adding these items here
+                    }
+
                     if (item.name === "About Quote") {
-                        // Handle the "About Quote" differently to ensure spacing
-                        if (addedSeparator) {
-                            navElement.appendChild(document.createElement("br")); // Add space before the quote
-                        }
+                        const br = document.createElement("br");
+                        fragment.appendChild(br);
+                        fragment.appendChild(br.cloneNode());
                         const quoteElement = document.createElement("a");
                         quoteElement.textContent = item.quote;
                         quoteElement.href = item.url;
-                        navElement.appendChild(quoteElement);
-                        navElement.appendChild(document.createElement("br")); // Add space after the quote
-                        navElement.appendChild(document.createElement("br"));
-                        addedSeparator = false; // Reset the separator flag
+                        fragment.appendChild(quoteElement);
+                        fragment.appendChild(br.cloneNode());
+                        fragment.appendChild(br.cloneNode());
                     } else {
-                        // Add a separator before the current item if it's not the first item
-                        if (addedSeparator) {
-                            navElement.appendChild(document.createTextNode(" 🐒 "));
+                        if (needSeparator && !(containerId === "dynamic-footer" && isFirstValidationLink)) {
+                            fragment.appendChild(document.createTextNode(" 🐒 "));
                         } else {
-                            addedSeparator = true; // Mark that the next item will need a separator before it
+                            needSeparator = true; // After the first item, separators are needed
                         }
+
                         const linkElement = document.createElement("a");
                         linkElement.href = item.url;
                         linkElement.textContent = item.name;
-                        navElement.appendChild(linkElement);
+                        fragment.appendChild(linkElement);
+
+                        // After appending the first validation link, ensure the flag is set to false
+                        if (containerId === "dynamic-footer" && ["Valid HTML!", "Valid CSS!", "Valid Disability/Accessibility Design!"].includes(item.name)) {
+                            isFirstValidationLink = false;
+                        }
                     }
                 });
+
+                container.appendChild(fragment);
+
+                // Add the "Designed by..." part only to the footer
+                if (containerId === "dynamic-footer") {
+                    const designedByText = document.createElement("p");
+                    designedByText.innerHTML = `Designed by <a href="http://ManojAperatureInc.com/">Manoj Aperature Inc.</a>, <a href="https://www.freecodecamp.org/certification/KevinVManoj/responsive-web-design">Certified in RWD</a>, <a href="https://www.freecodecamp.org/certification/KevinVManoj/javascript-algorithms-and-data-structures-v8">Certified in JS</a>`;
+                    container.appendChild(designedByText);
+                }
             })
             .catch(error => console.error(`Error fetching data from ${jsonFilePath}:`, error));
     }
