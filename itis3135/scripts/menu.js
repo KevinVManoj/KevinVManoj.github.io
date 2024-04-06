@@ -8,61 +8,71 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById(containerId);
+
                 if(containerId === "dynamic-header") {
-                    container.innerHTML = `<h1>Kevin Manoj 🐒 Keen Monkey ITIS-3135</h1>` + container.innerHTML;
+                    // Directly setting the h1 tag as part of the container's content
+                    const headerTitle = document.createElement('h1');
+                    headerTitle.innerHTML = "Kevin Manoj 🐒 Keen Monkey ITIS-3135";
+                    container.appendChild(headerTitle);
                 }
-                
-                const fragment = document.createDocumentFragment();
-                let needSeparator = false; // Initially, no separator is needed
-                let isFirstValidationLink = true; // Track the first validation link
+
+                let isFirstItem = true; // Adjusted logic to use isFirstItem for initial item check
 
                 data.forEach(item => {
-                    // Skip specific items to be added manually later
+                    // Skip specific items that are added manually later
                     if (["Manoj Aperature Inc.", "Certified in RWD", "Certified in JS"].includes(item.name)) {
                         return; // Skip adding these items here
+                    } else if(["Valid HTML!", "Valid CSS!", "Valid Disability/Accessibility Design!"].includes(item.name)) {
+                        return;
                     }
 
                     if (item.name === "About Quote") {
-                        const br = document.createElement("br");
-                        fragment.appendChild(br);
-                        fragment.appendChild(br.cloneNode());
-                        const quoteElement = document.createElement("a");
-                        quoteElement.textContent = item.quote;
-                        quoteElement.href = item.url;
-                        fragment.appendChild(quoteElement);
-                        fragment.appendChild(br.cloneNode());
-                        fragment.appendChild(br.cloneNode());
+                        addBreaksAndContent(container, item.quote, item.url);
                     } else {
-                        if (needSeparator && !(containerId === "dynamic-footer" && isFirstValidationLink)) {
-                            fragment.appendChild(document.createTextNode(" 🐒 "));
+                        if (!isFirstItem && containerId !== "dynamic-crap") {
+                            container.appendChild(document.createTextNode(" 🐒 "));
                         } else {
-                            needSeparator = true; // After the first item, separators are needed
+                            isFirstItem = false;
                         }
 
                         const linkElement = document.createElement("a");
                         linkElement.href = item.url;
                         linkElement.textContent = item.name;
-                        fragment.appendChild(linkElement);
-
-                        // After appending the first validation link, ensure the flag is set to false
-                        if (containerId === "dynamic-footer" && ["Valid HTML!", "Valid CSS!", "Valid Disability/Accessibility Design!"].includes(item.name)) {
-                            isFirstValidationLink = false;
-                        }
+                        container.appendChild(linkElement);
                     }
                 });
 
-                container.appendChild(fragment);
-
-                // Add the "Designed by..." part only to the footer
                 if (containerId === "dynamic-footer") {
-                    const designedByText = document.createElement("p");
-                    designedByText.innerHTML = `Designed by <a href="http://ManojAperatureInc.com/">Manoj Aperature Inc.</a>, <a href="https://www.freecodecamp.org/certification/KevinVManoj/responsive-web-design">Certified in RWD</a>, <a href="https://www.freecodecamp.org/certification/KevinVManoj/javascript-algorithms-and-data-structures-v8">Certified in JS</a>`;
-                    container.appendChild(designedByText);
+                    addDesignedBySection(container);
+                    addButtons(container);
                 }
             })
             .catch(error => console.error(`Error fetching data from ${jsonFilePath}:`, error));
     }
+
+    function addBreaksAndContent(container, text, url) {
+        const br = document.createElement("br");
+        container.appendChild(br.cloneNode()); // Add extra spacing above
+        const quoteElement = document.createElement("a");
+        quoteElement.textContent = text;
+        quoteElement.href = url;
+        container.appendChild(quoteElement);
+        container.appendChild(br.cloneNode()); // Add extra spacing below
+    }
+
+    function addDesignedBySection(container) {
+        const designedByText = document.createElement("p");
+        designedByText.innerHTML = `Designed by <a href="http://ManojAperatureInc.com/">Manoj Aperature Inc.</a>, <a href="https://www.freecodecamp.org/certification/KevinVManoj/responsive-web-design">Certified in RWD</a>, <a href="https://www.freecodecamp.org/certification/KevinVManoj/javascript-algorithms-and-data-structures-v8">Certified in JS</a>`;
+        container.appendChild(designedByText);
+    }
+
+    function addButtons(container) {
+        const buttonsMade1 = document.createElement("a");
+        buttonsMade1.innerHTML = `<img style="border:0;width:88px;height:31px;margin:auto; display: flex;" src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">`;
+    }
 });
+
+
 
 
 
