@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
         disabilityValidationLink.id = "validation_link_disability";
         const disabilityValidationImg = document.createElement("img");
         disabilityValidationImg.style = "border:0;width:88px;height:31px;margin:auto; display: flex;";
-        disabilityValidationImg.src = "..\\Images\\Valid.png"; 
+        disabilityValidationImg.src = "Images/Valid.png"; 
         disabilityValidationImg.alt = "Valid Disability/Accessibility Design!";
         disabilityValidationLink.appendChild(disabilityValidationImg);
         container.appendChild(disabilityValidationLink);
