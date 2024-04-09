@@ -12,5 +12,5 @@
     {"name": "Certified in JS", "url": "https://www.freecodecamp.org/certification/KevinVManoj/javascript-algorithms-and-data-structures-v8"},
     {"name": "Valid HTML!", "url": "https://validator.w3.org/check?uri=referer", "img": "https://mytienhoang.github.io/itis3135/z_archives/html_validation.png"},
     {"name": "Valid CSS!", "url": "https://jigsaw.w3.org/css-validator/check/referer", "img": "https://jigsaw.w3.org/css-validator/images/vcss"},
-    {"name": "Valid Disability/Accessibility Design!", "url": "https://wave.webaim.org/report#/", "img": "/Images/Valid.png"}
+    {"name": "Valid Disability/Accessibility Design!", "url": "https://wave.webaim.org/report#/", "img": "Images/Valid.png"}
 ]
