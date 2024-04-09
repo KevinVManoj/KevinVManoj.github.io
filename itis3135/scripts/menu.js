@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
         container.appendChild(cssValidationLink);
 
         const disabilityValidationLink = document.createElement("a");
-        disabilityValidationLink.href = "https://wave.webaim.org/report#/";
+        disabilityValidationLink.href = "https://wave.webaim.org/report#/" + location.href;
         disabilityValidationLink.id = "validation_link_disability";
         const disabilityValidationImg = document.createElement("img");
         disabilityValidationImg.style = "border:0;width:88px;height:31px;margin:auto; display: flex;";
