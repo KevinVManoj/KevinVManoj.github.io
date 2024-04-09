@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function addButtons(container) {
         const htmlValidationLink = document.createElement("a");
-        htmlValidationLink.href = "https://validator.w3.org/check?uri=referer";
+        htmlValidationLink.href = "https://validator.w3.org/check?uri=" + location.href;
         htmlValidationLink.id = "validation_link_html";
         const htmlValidationImg = document.createElement("img");
         htmlValidationImg.style = "border:0;width:88px;height:31px;margin:auto; display: flex;";
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
         container.appendChild(htmlValidationLink);
 
         const cssValidationLink = document.createElement("a");
-        cssValidationLink.href = "https://jigsaw.w3.org/css-validator/check/referer";
+        cssValidationLink.href = "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href;
         cssValidationLink.id = "validation_link_css";
         const cssValidationImg = document.createElement("img");
         cssValidationImg.style = "border:0;width:88px;height:31px;margin:auto; display: flex;";
