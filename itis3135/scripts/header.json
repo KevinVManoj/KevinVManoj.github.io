@@ -12,5 +12,6 @@
     {"name": "Calculator", "url": "calculator.html"},
     {"name": "Arrays", "url": "arrays.html"},
     {"name": "Hobby", "url": "hobby.html"},
-    {"name": "Drawing", "url": "drawing.html"}
+    {"name": "Drawing", "url": "drawing.html"},
+    {"name": "Slideshow", "url": "slideshow.html"}
 ]
