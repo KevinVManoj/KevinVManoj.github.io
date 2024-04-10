@@ -216,3 +216,15 @@ fieldset {
 .equals {
     width: 421px;
 }
+
+.container {
+    width: 100%;
+    max-width: 600px; /* Adjust based on your preference */
+    margin: auto;
+    overflow: hidden; /* Keeps the layout from breaking */
+}
+
+.mySlides {
+    display: none; /* Hide slides initially; JavaScript will manage display */
+    width: 100%; /* Ensure slides occupy the full width of the container */
+}
