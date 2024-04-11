@@ -11,7 +11,7 @@ function currentSlide(n) {
 
 function showSlides(n) {
   var i;
-  var slides = $(".mySlides"); 
+  var slides = $(".slides"); 
   var dots = $(".demo"); 
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
