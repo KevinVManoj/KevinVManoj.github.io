@@ -1,0 +1,198 @@
+/* Universal base styles */
+* {
+    font-family: 'Courier New', sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Header styles */
+#topSection {
+    background-color: gold;
+    padding: 5px;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 1000;
+}
+
+#topSection nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+}
+
+#topSection .nav-button {
+    color: green;
+    text-decoration: none;
+    margin: 10px 0;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#topSection #logo {
+    height: 70vh;
+    width: 120%;
+    margin-right: 15px;
+}
+
+#topSection p {
+    font-size: 30px;
+    color: green;
+    font-weight: bolder;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+#menuTitle {
+    color: green;
+    text-align: center;
+    font-size: 50px;
+    background-color: white;
+    border: 5px solid black;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Content layout styles */
+.contentRow1, .contentRow2 {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.homepageH1Box, .homepageH2Box {
+    width: 100%;
+}
+
+.homeImage1, .homeImage2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+p {
+    font-size: 15px;
+    float: left;
+}
+
+.eventh2 {
+    margin-left: 250px;
+}
+
+.contacth1 {
+    margin-left: 210px;
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+    padding: 20px;
+    margin-left: 250px; 
+}
+
+.contact-block {
+    background-color: #f4f4f4; /* Light gray background */
+    border: 2px solid #ccc; /* Light gray border */
+    padding: 10px;
+    text-align: center; /* Center align the text inside each block */
+}
+
+.contact-block img {
+    width: 100px; /* Fixed width for images */
+    height: 100px; /* Fixed height for images */
+    object-fit: cover; /* Ensure the image covers the area */
+    border-radius: 50%; /* Circular images */
+    margin: 10px auto; /* Center the image horizontally */
+}
+
+.block1 .contacth2 {
+    margin-left: 215px;
+}
+
+.block1 .contacth3 {
+    margin-left: 230px;
+}
+
+main {
+    margin-left: 250px;
+}
+
+.styled-calendar-container {
+    width: 80%;
+    border: none;
+    margin-left: 13%;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    /* Styles for tablets */
+    .contentRow1, .contentRow2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .homepageH1Box, .homepageH2Box {
+        width: 95%;
+    }
+
+    .homeImage1, .homeImage2 {
+        width: 100%;
+    }
+
+    #topSection {
+        position: static;
+        width: 100%;
+    }
+
+    .styled-calendar-container {
+        width: 95%;
+        margin-left: 2.5%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Styles for phones */
+    .contentRow1, .contentRow2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .homepageH1Box, .homepageH2Box {
+        width: 90%;
+    }
+
+    .homeImage1, .homeImage2 {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    #topSection {
+        position: static;
+        width: 100%;
+    }
+
+    .styled-calendar-container {
+        width: 100%;
+        margin-left: 0;
+    }
+}
