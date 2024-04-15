@@ -13,5 +13,6 @@
     {"name": "Arrays", "url": "arrays.html"},
     {"name": "Hobby", "url": "hobby.html"},
     {"name": "Drawing", "url": "drawing.html"},
-    {"name": "Slideshow", "url": "slideshow.html"}
+    {"name": "Slideshow", "url": "slideshow.html"},
+    {"name": "Actual Client Site", "url": "clientSite/homePage.html"}
 ]
