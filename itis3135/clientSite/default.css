@@ -1,106 +1,143 @@
-/* Universal base styles */
-* {
-    font-family: 'Courier New', sans-serif;
+main {
+    margin-left: 200px;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
+
+
 
 /* Header styles */
 #topSection {
     background-color: gold;
-    padding: 5px;
     margin: 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 200px;
-    height: 100%;
+    height: 100vh;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 1px;
 }
 
 #topSection nav {
+    flex-grow: 1; /* Allows the navigation to fill available space, pushing the logo down */
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start; /* Aligns items to the start of the flex container */
     align-items: center;
-    height: 100%;
+    gap: 5.5vh; /* Consistent spacing, using px to avoid extreme spacing variability */
+    overflow-y: auto; /* Allows scrolling within nav if there are many items */
+    padding: 10px 0; /* Padding at the top and bottom */
 }
 
 #topSection .nav-button {
     color: green;
-    text-decoration: none;
-    margin: 10px 0;
     background-color: transparent;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 3vh;
     font-weight: bolder;
 }
 
-#topSection #logo {
-    height: 70vh;
-    width: 120%;
-    margin-right: 15px;
-}
-
-#topSection p {
-    font-size: 30px;
-    color: green;
-    font-weight: bolder;
+#logo {
+    max-height: 20vh;
+    max-width: 90%;
+    align-self: center;
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+    flex: 0 1 auto; /* Flex grow is 0, flex shrink is 1, flex-basis is auto */
+    width: 100%; /* Ensures header spans the full width */
+    padding: 0; /* No padding at top and bottom */
 }
 
 #menuTitle {
     color: green;
     text-align: center;
-    font-size: 50px;
+    font-size: 4.25vh;
     background-color: white;
     border: 5px solid black;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced margin to tighten up space */
     width: 100%;
     box-sizing: border-box;
 }
 
+
+
 /* Content layout styles */
-.contentRow1, .contentRow2 {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
+
+h1 {
+    text-align: center;
 }
 
-.homepageH1Box, .homepageH2Box {
-    width: 100%;
-}
-
-.homeImage1, .homeImage2 {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+h2 {
+    text-align: center;
+    font-size: 30px
 }
 
 p {
-    font-size: 15px;
-    float: left;
+    font-size: 20px
 }
 
-.eventh2 {
-    margin-left: 250px;
+li {
+    margin-left: 1vw;
+    font-size: 20px
 }
 
-.contacth1 {
-    margin-left: 210px;
+/* Home Page */
+.homeImage1 {
+    width: 75vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.homePagep {
     text-align: center;
+    font-size: 17px;
 }
+
+.homebox1 {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 75vw;
+}
+
+/* About Us Page */
+
+
+.container {
+    width: 100%;
+    max-width: 600px; 
+    margin: auto;
+    overflow: hidden; 
+}
+
+.slides {
+    display: none; 
+    width: 100%; 
+}
+
+/* Projects */
+.projects2023-2024 {
+    background-color: rgb(202, 200, 200);
+}
+
+/* Event Page */ 
+
+.styled-calendar-container {
+    width: 80%;
+    border: none;
+    margin-left: 240px;
+}
+
+/* Join Us */
+
+
+/* Contact Page */
 
 .contact-grid {
     display: grid;
@@ -111,40 +148,27 @@ p {
 }
 
 .contact-block {
-    background-color: #f4f4f4; /* Light gray background */
-    border: 2px solid #ccc; /* Light gray border */
+    background-color: #f4f4f4; 
+    border: 2px solid #ccc; 
     padding: 10px;
-    text-align: center; /* Center align the text inside each block */
+    text-align: center; 
 }
 
 .contact-block img {
-    width: 100px; /* Fixed width for images */
-    height: 100px; /* Fixed height for images */
-    object-fit: cover; /* Ensure the image covers the area */
-    border-radius: 50%; /* Circular images */
-    margin: 10px auto; /* Center the image horizontally */
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    margin: 10px auto; 
 }
 
-.block1 .contacth2 {
-    margin-left: 215px;
-}
-
-.block1 .contacth3 {
-    margin-left: 230px;
-}
-
-main {
-    margin-left: 250px;
-}
-
-.styled-calendar-container {
-    width: 80%;
-    border: none;
-    margin-left: 13%;
-}
 
 @media (max-width: 1024px) and (min-width: 769px) {
     /* Styles for tablets */
+    main {
+        margin-left: 0px;
+    }
+
     .contentRow1, .contentRow2 {
         flex-direction: column;
         align-items: center;
@@ -167,10 +191,47 @@ main {
         width: 95%;
         margin-left: 2.5%;
     }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px; 
+        padding: 20px;
+        margin-left: 0px; 
+    }
 }
 
 @media (max-width: 768px) {
     /* Styles for phones */
+    main {
+        margin-left: 0px;
+    }
+
+    #topSection {
+        background-color: gold;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #menuTitle {
+        color: green;
+        text-align: center;
+        font-size: 50px;
+        background-color: white;
+        border: 5px solid black;
+        padding: 10px;
+        margin-bottom: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .contentRow1, .contentRow2 {
         flex-direction: column;
         align-items: center;
@@ -194,5 +255,13 @@ main {
     .styled-calendar-container {
         width: 100%;
         margin-left: 0;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px; 
+        padding: 20px;
+        margin-left: 0px; 
     }
 }
