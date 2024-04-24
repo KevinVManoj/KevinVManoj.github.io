@@ -16,4 +16,3 @@ function showSlides() {
     // Set to change slide every 10 seconds
     setTimeout(showSlides, 5000);
 }
-
