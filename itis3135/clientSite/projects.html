@@ -5,29 +5,45 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="default.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     </head>
     <body>
         <div id='topSection'></div>
         <main>
-            <div class="projects2023-2024">
-                <h2 class="projectsh3">2023-2024</h2>
-                <h3>The Project</h3>
-                <h4>Wave Energy Converter</h4>
-                <p>The intent with the teams project was to create a wave energy convertor that would be able to mount to existing foundations and develop an established grid. The main target is existing offshore wind farms. These wind farms are an existing area already dedicated to harvesting wind energy, and with the addition of WECs into this system could make the area more energy efficient.</p>
-                <p>The team is prototyping a WEC with a modular mounting system that will be able to anchor itself on a number of different foundations, developing energy harvesting those areas.</p>
-            
-                <h3>Cad Images</h3>
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">2023-2024</a></li>
+                    <li><a href="#tabs-2">2024-2025</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <h2 class="projectsh3">2023-2024</h2>
+                    <h3>The Project</h3>
+                    <h4>Wave Energy Converter</h4>
+                    <p>The intent with the teams project was to create a wave energy convertor that would be able to mount to existing foundations and develop an established grid. The main target is existing offshore wind farms. These wind farms are an existing area already dedicated to harvesting wind energy, and with the addition of WECs into this system could make the area more energy efficient.</p>
+                    <p>The team is prototyping a WEC with a modular mounting system that will be able to anchor itself on a number of different foundations, developing energy harvesting those areas.</p>
+                
+                    <h3>Cad Images</h3>
 
-                <h3>The Goal</h3>
-                <h4>Prototype</h4>
-                <p>For the prototype the team hopes to create a working scale model that proves the original concept. The team is working to ensure that the design is calculated and repeatable for future use and innovation.</p>
-                <h4>Market Sector</h4>
-                <p>This prototype must be efficient, cost effective and reliable in order to be used in isolated communities.</p>
-                <h4>Competition</h4>
-                <p>The team is aiming for Rookie of the year</p>
+                    <h3>The Goal</h3>
+                    <h4>Prototype</h4>
+                    <p>For the prototype the team hopes to create a working scale model that proves the original concept. The team is working to ensure that the design is calculated and repeatable for future use and innovation.</p>
+                    <h4>Market Sector</h4>
+                    <p>This prototype must be efficient, cost effective and reliable in order to be used in isolated communities.</p>
+                    <h4>Competition</h4>
+                    <p>The team is aiming for Rookie of the year</p>
+                </div>
+                
+                <div id="tabs-2">
+                    <p>To be continued...</p>
+                </div>
+                
+                
             </div>
         </main>
         <script src="scripts/HTMLInclude.js" defer></script>
-        <script src="scripts/scripts.js" defer></script>
+        <script src="scripts/tabs.js" defer></script>
     </body>
 </html>

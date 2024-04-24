@@ -5,6 +5,8 @@ $(document).ready(function() {
 
 function showSlides() {
     var slides = $(".slides");
+    var pathname = window.location.pathname;
+
     slides.hide(); // Hide all slides initially using jQuery
 
     slideIndex++;
@@ -13,6 +15,9 @@ function showSlides() {
     // Fade in the current slide
     slides.eq(slideIndex - 1).fadeIn(600);
     
-    // Set to change slide every 10 seconds
-    setTimeout(showSlides, 5000);
+    if(pathname === "/homePage.html") {
+        setTimeout(showSlides, 10000); // Set to change slide every 10 seconds
+    } else {
+        setTimeout(showSlides, 5000); // Set to change slide every 5 seconds
+    }
 }
