@@ -16,5 +16,5 @@
     {"name": "Slideshow", "url": "slideshow.html"},
     {"name": "Peer Review 1", "url": "peerReview1.html"},
     {"name": "Peer Review 2", "url": "peerReview2.html"},
-    ("name")
+    {"name": "Actual Client", "url": "clientSite/homePage.html"}
 ]
