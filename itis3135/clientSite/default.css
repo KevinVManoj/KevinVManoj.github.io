@@ -1,0 +1,301 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(187, 224, 184);
+}
+
+main {
+    margin-left: 200px;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Header styles */
+#topSection {
+    background-color: gold;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    max-height: 2000px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+#topSection nav {
+    flex-grow: 1; /* Allows the navigation to fill available space, pushing the logo down */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns items to the start of the flex container */
+    align-items: center;
+    gap: 5.5vh; /* Consistent spacing, using px to avoid extreme spacing variability */
+    overflow-y: auto; /* Allows scrolling within nav if there are many items */
+    padding: 10px 0; /* Padding at the top and bottom */
+}
+
+#topSection .nav-button {
+    color: green;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: min(3vh, 30px);
+    font-weight: bolder;
+}
+
+#logo {
+    max-height: 20vh;
+    max-width: 90%;
+    align-self: center;
+}
+
+header {
+    flex: 0 1 auto; /* Flex grow is 0, flex shrink is 1, flex-basis is auto */
+    width: 100%; /* Ensures header spans the full width */
+    padding: 0; /* No padding at top and bottom */
+}
+
+#menuTitle {
+    color: green;
+    text-align: center;
+    font-size: min(4.25vh, 60px);
+    background-color: white;
+    border: 5px solid black;
+    padding: 10px;
+    margin-bottom: 10px; /* Reduced margin to tighten up space */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Content layout styles */
+/* Home Page */
+.homeImage1 {
+    width: 75vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.homebox1 {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 75vw;
+}
+
+/* About Us Page */
+li {
+    margin-left: 1vw;
+    font-size: 20px
+}
+
+.container {
+    width: 100%;
+    max-width: 600px; 
+    margin: auto;
+    overflow: hidden; 
+}
+
+.slides {
+    display: none; 
+    width: 100%; 
+}
+
+/* Event Page */ 
+
+.styled-calendar-container {
+    width: 80%;
+    border: none;
+    margin-left: 240px;
+}
+
+/* Join Us */
+
+
+/* Contact Page */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+    padding: 20px;
+    margin-left: 200px;
+}
+
+.contact-block {
+    background-color: #f4f4f4; 
+    border: 2px solid #ccc; 
+    padding: 10px;
+    text-align: center; 
+}
+
+.contact-block img {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    margin: 10px auto; 
+}
+
+.block1 .contacth2 {
+    margin-left: 215px;
+}
+
+.block1 .contacth3 {
+    margin-left: 230px;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    /* Styles for tablets */
+    main {
+        margin-left: 0px;
+    }
+
+    .contentRow1, .contentRow2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .homepageH1Box, .homepageH2Box {
+        width: 95%;
+    }
+
+    .homeImage1, .homeImage2 {
+        width: 100%;
+    }
+
+    #topSection {
+        position: static;
+        width: 100%;
+    }
+
+    .styled-calendar-container {
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .eventh2 {
+        margin-left: 15px;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px; 
+        padding: 20px;
+        margin-left: 0px; 
+    }
+
+    .contacth1 {
+        margin-left: 0px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Styles for phones */
+    main {
+        margin-left: 0px;
+    }
+
+    #logo {
+        max-height: 15vh;
+        max-width: 90%;
+        align-self: center;
+    }
+
+    #menuTitle {
+        color: green;
+        text-align: center;
+        font-size: 50px;
+        background-color: white;
+        border: 5px solid black;
+        padding: 10px;
+        margin-bottom: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #topSection nav {
+        flex-grow: 1; /* Allows the navigation to fill available space, pushing the logo down */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Aligns items to the start of the flex container */
+        align-items: center;
+        gap: 2.4vh; /* Consistent spacing, using px to avoid extreme spacing variability */
+        overflow-y: auto; /* Allows scrolling within nav if there are many items */
+        padding: 10px 0; /* Padding at the top and bottom */
+    }
+
+    #topSection {
+        background-color: gold;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 90vh;
+        max-height: 2000px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contentRow1, .contentRow2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .homepageH1Box, .homepageH2Box {
+        width: 90%;
+    }
+
+    .homeImage1, .homeImage2 {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    #topSection {
+        position: static;
+        width: 100%;
+    }
+
+    .styled-calendar-container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .eventh2 {
+        margin-left: 25px;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px; 
+        padding: 20px;
+        margin-left: 0px; 
+    }
+
+    .contacth1 {
+        margin-left: 0px;
+        text-align: center;
+    }
+}
