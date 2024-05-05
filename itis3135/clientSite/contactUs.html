@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Page Title -->
+    <title>UNCC's MECC Contact Us</title>
+    
+    <!-- Character set and Responsive Meta Tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- External stylesheet for site-wide CSS rules -->
+    <link rel="stylesheet" href="default.css">
+    
+    <!-- Favicon for the site; appears in browser tabs and bookmarks -->
+    <link rel="icon" type="image/x-icon" href="images/DDG_Logo.png">
+</head>
+<body>
+    <!-- Top section placeholder that could be used for a header or navigation bar -->
+    <div id='topSection'></div>
+    
+    <!-- Main content section of the page -->
+    <main>
+        <!-- Heading for the contact page, giving users context about the content below -->
+        <h1>Contact Information</h1>
+        <!-- Grid layout for displaying contact details for multiple club officers -->
+    <div class="contact-grid">
+        <!-- Individual block for President's contact information -->
+        <div class="contact-block">
+            <img src="images/jacob.jpg" alt="Jacob Silknitter" title="Jacob Silknitter - President">
+            <h2 class="contacth2">President:</h2>
+            <h3 class="contacth3">Jacob Silknitter</h3>
+            <h3 class="contacth3">jsilknit@uncc.edu</h3>
+        </div>
+        <!-- Additional blocks for other members with similar structure -->
+        <!-- Secretary's contact block -->
+        <div class="contact-block">
+            <img src="images/kevin.jpg" alt="Kevin Manoj" title="Kevin Manoj - Secretary">
+            <h2 class="contacth2">Secretary:</h2>
+            <h3 class="contacth3">Kevin Manoj</h3>
+            <h3 class="contacth3">kmanoj@uncc.edu</h3>
+        </div>
+        <!-- Treasurer's contact block -->
+        <div class="contact-block">
+            <img src="images/tejas.JPG" alt="Tejas Raj" title="Tejas Raj - Treasurer">
+            <h2 class="contacth2">Treasurer:</h2>
+            <h3 class="contacth3">Tejas Raj</h3>
+            <h3 class="contacth3">traj1@uncc.edu</h3>
+        </div>
+        <!-- Community Engagement Lead's contact block -->
+        <div class="contact-block">
+            <img src="images/Heidi.JPG" alt="Heidi Zuk" title="Heidi Zuk - Community Engagement Lead">
+            <h2 class="contacth2">Community Engagement Lead:</h2>
+            <h3 class="contacth3">Heidi Zuk</h3>
+            <h3 class="contacth3">hzuk@uncc.edu</h3>
+        </div>
+    </div>
+    
+    <!-- Section dedicated for sending direct emails from the website -->
+    <section class="contact">
+        <h2>Email Us Directly</h2>
+        <form action="#">
+            <!-- Input box containing all the input fields for the contact form -->
+            <div class="input-box">
+                <!-- Input field for Full Name -->
+                <div class="input-field field">
+                    <input type="text" placeholder="Full Name" id="name" class="item" autocomplete="off">
+                </div>
+                <!-- Input field for Email -->
+                <div class="input-field field">
+                    <input type="text" placeholder="Email" id="email" class="item" autocomplete="off">
+                </div>
+                <!-- Input field for Subject -->
+                <div class="input-field field">
+                    <input type="text" placeholder="Subject" id="subject" class="item" autocomplete="off">
+                </div>
+                <!-- Textarea for typing the message -->
+                <div class="textarea-field field">
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message" class="item" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    </main>
+
+    <!-- Script for including HTML components like header or footer dynamically -->
+    <script src="scripts/HTMLInclude.js" defer></script>
+    
+    <!-- Script for handling SMTP email sending functions; included from a third-party source -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    
+    <!-- Script to handle the operations of the contact form -->
+    <script src="scripts/contact.js" defer></script>
+
+</body>
+</html>
