@@ -161,7 +161,7 @@ li {
 
 
 /* Additional media query styles for responsiveness on tablets and phones */
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1024px) {
     /* Tablet-specific styles */
     main {
         margin-left: 0px; /* Removes left margin for better space utilization */
@@ -207,46 +207,3 @@ li {
     }
 }
 
-@media (max-width: 768px) {
-    /* Phone-specific styles */
-    main {
-        margin-left: 0px; /* Removes left margin for full-width content */
-    }
-
-    #logo {
-        max-height: 15vh; /* Adjusts the logo size */
-        max-width: 90%; /* Adjusts the logo width */
-    }
-
-    #menuTitle {
-        font-size: 50px; /* Reduces font size for smaller screens */
-        margin-bottom: 5px; /* Reduces bottom margin */
-    }
-
-    #topSection {
-        height: 90vh; /* Adjusts height for smaller screens */
-    }
-
-    .contentRow1, .contentRow2 {
-        flex-direction: column; /* Ensures vertical stacking of content */
-    }
-
-    .homeImage1, .homeImage2 {
-        height: auto; /* Adjusts height automatically */
-        object-fit: cover; /* Ensures images cover the area appropriately */
-    }
-
-    .styled-calendar-container {
-        width: 100%; /* Full width for the calendar */
-        margin-left: 100px; /* No margin for alignment */
-    }
-
-    .contact-grid {
-        margin-left: 0px; /* Aligns grid to the page edges */
-    }
-
-    .contacth1 {
-        text-align: center; /* Centers contact headings */
-    }
-
-}
