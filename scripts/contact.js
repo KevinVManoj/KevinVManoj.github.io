@@ -13,10 +13,10 @@ function sendEmail() {
     // Using EmailJS to send the email via SMTP
     Email.send({
         Host : "smtp.elasticemail.com",
-        Username : "kmanoj@charlotte.edu",
+        Username : "ddgmecc@gmail.com",
         Password : "A29EE6FA5B5A2F2C8A8FB5D52CC7B0B5A9B9",
-        To : 'kmanoj@charlotte.edu',
-        From : "kmanoj@charlotte.edu",
+        To : 'ddgmecc@gmail.com',
+        From : "ddgmecc@gmail.com",
         Subject : subject.value,
         Body : bodyMessage
     }).then(
