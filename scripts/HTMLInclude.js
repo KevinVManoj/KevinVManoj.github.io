@@ -17,7 +17,7 @@ function updateActiveLink() {
     const currentLocation = window.location.pathname;
     console.log('Current Location:', currentLocation); // This will show the path being checked
 
-    if (currentLocation === '/') {
+    if (currentLocation === '') {
         currentLocation = '/index.html'; // Adjust to match the href you have for the home button
     }
 
