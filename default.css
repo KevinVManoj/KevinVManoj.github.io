@@ -158,8 +158,6 @@ li {
     margin: 10px auto; /* Centers images horizontally */
 }
 
-
-
 /* Additional media query styles for responsiveness on tablets and phones */
 @media (max-width: 1024px) {
     /* Tablet-specific styles */
@@ -204,6 +202,14 @@ li {
     
     .calendarMarg {
         margin-left: 0px;
+    }
+
+    #CadImage1 {
+        width: 266px;
+    }
+
+    #CadImage4 {
+        width: 300px; 
     }
 }
 
