@@ -182,6 +182,7 @@ li {
     margin: 20px auto; /* Center container horizontally and add margin */
     width: 80%; /* Adjust container width as needed */
     gap: 20px; /* Add space between the iframe and div */
+    flex-wrap: nowrap; /* Ensure items don't wrap to the next line */
 }
 
 /* Style for the Discord iframe */
@@ -198,7 +199,6 @@ li {
     border: 1px solid #ccc; /* Border for definition */
     min-width: 200px; /* Minimum width */
 }
-
 
 
 
@@ -256,6 +256,16 @@ li {
         width: 300px; 
     }
 
+    /* Style for the Discord iframe */
+    .iframe-container {
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center; /* Centers items within the container */
+        gap: 10px; /* Adjust space between items */
+    }
 
+    .iframe-container iframe,
+    .iframe-container .elfsight-app-bdb80fdb-ce24-47e6-850b-54b204ef9e6c {
+        width: 100%; /* Full width for better display on mobile */
+    }
 }
 
