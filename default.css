@@ -200,6 +200,21 @@ li {
     min-width: 200px; /* Minimum width */
 }
 
+a:link {
+    color: blue;
+  }
+  
+  a:visited {
+    color: blue;
+  }
+  
+  a:hover {
+    color: green;
+  }
+  
+  a:link, a:visited {
+    text-decoration: none;
+  }
 
 
 /* Additional media query styles for responsiveness on tablets and phones */
