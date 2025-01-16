@@ -130,16 +130,14 @@ li {
     margin-left: 200px; /* Left margin for alignment */
 }
 
-
-
 /* Grid layout for contact information on the 'Contact Page' */
 .contact-grid {
     display: grid; /* Grid display */
     grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
     gap: 20px; /* Space between grid items */
     padding: 20px; /* Padding inside the grid container */
-    
-}
+    margin: auto; /* Centers images horizontally */
+}   
 
 /* Block styles within the contact grid */
 .contact-block {
@@ -147,6 +145,7 @@ li {
     border: 2px solid #ccc; /* Subtle border for definition */
     padding: 10px; /* Padding around content */
     text-align: center; /* Centers the text inside each block */
+    
 }
 
 /* Image styles within contact blocks */
@@ -161,7 +160,44 @@ li {
 
 
 /* Additional media query styles for responsiveness on tablets and phones */
-@media (max-width: 1024px){
+@media (max-width: 1024px) {
+    #topSection {
+        background-color: gold; /* Distinguishing color for visual emphasis */
+        margin: 0; /* Eliminates default margin */
+        position: fixed; /* Fixed position to keep it visible on scroll */
+        top: 0; /* Anchored to the top of the viewport */
+        left: 0; /* Anchored to the left of the viewport */
+        width: 200px; /* Specific width for uniformity */
+        height: 45vh; /* Full height of the viewport */
+        max-height: 2000px; /* Limits the maximum height */
+        z-index: 1000; /* Ensures it layers above other content */
+        display: flex; /* Enables flexible box layout */
+        flex-direction: column; /* Stacks child elements vertically */
+    }
+
+    /* Navigation styles within the header */
+#topSection nav {
+    flex-grow: 1; /* Fills the available space in the flex container */
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Aligns items to the start of the navigation */
+    align-items: center; /* Centers items horizontally */
+    gap: 5.5vh; /* Consistent vertical spacing between items */
+    overflow-y: auto; /* Allows scrolling if content exceeds the element's height */
+    padding: 10px 0; /* Padding on the top and bottom for spacing */
+}
+
+#topSection .nav-button {
+    color: green; /* Green color for text */
+    text-decoration: none; /* Removes underline from text */
+    background-color: transparent; /* No background color */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    font-size: min(2vw, 30px); /* Responsive font size, smaller of viewport height or 30px */
+    font-weight: bolder; /* Bold font for emphasis */
+    text-align: center;
+}
+
+
     /* Tablet-specific styles */
     main {
         margin-left: 0px; /* Removes left margin for better space utilization */
@@ -186,7 +222,7 @@ li {
     }
 
     .contentRow1, .contentRow2 {
-        flex-direction: row; /* Stacks items vertically */
+        flex-direction: line; /* Stacks items vertically */
         align-items: center; /* Centers items within the container */
     }
 
@@ -223,5 +259,55 @@ li {
     .calendarMarg {
         margin-left: 0px;
     }
+
+    #CadImage1 {
+        width: 270px;
+    }
+
+    #CadImage4 {
+        width: 300px; 
+    }
+
+    /* Style for the Discord iframe */
+    .iframe-container {
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center; /* Centers items within the container */
+        gap: 10px; /* Adjust space between items */
+    }
+
+    .iframe-container iframe,
+    .iframe-container .elfsight-app-bdb80fdb-ce24-47e6-850b-54b204ef9e6c {
+        width: 100%; /* Full width for better display on mobile */
+    }
+
+    /* Grid layout for contact information on the 'Contact Page' */
+.contact-grid {
+    display: grid; /* Grid display */
+    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+    gap: 0px; /* Space between grid items */
+    padding: 0px; /* Padding inside the grid container */
+    margin: auto; /* Centers images horizontally */
+}   
+
+/* Block styles within the contact grid */
+.contact-block {
+    background-color: #f4f4f4; /* Light gray background for contrast */
+    border: 2px solid #ccc; /* Subtle border for definition */
+    padding: 0px; /* Padding around content */
+    text-align: center; /* Centers the text inside each block */
+    
+}
+
+/* Image styles within contact blocks */
+.contact-block img {
+    width: 100px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-radius: 50%; /* Makes images circular */
+    margin: 10px auto; /* Centers images horizontally */
+}
+
+
+
 }
 
