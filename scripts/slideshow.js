@@ -15,7 +15,7 @@ function showSlides() {
     // Fade in the current slide
     slides.eq(slideIndex - 1).fadeIn(600);
     
-    if(pathname === "/index.html") {
+    if(pathname === "/homePage.html") {
         setTimeout(showSlides, 10000); // Set to change slide every 10 seconds
     } else {
         setTimeout(showSlides, 5000); // Set to change slide every 5 seconds

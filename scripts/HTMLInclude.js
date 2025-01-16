@@ -15,17 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateActiveLink() {
     const navButtons = document.querySelectorAll('.nav-button');
     const currentLocation = window.location.pathname;
-    console.log('Current Location:', currentLocation); // This will show the path being checked
-
-    if (currentLocation === '/') {
-        currentLocation = '/index.html'; // Adjust to match the href you have for the home button
-    }
 
     navButtons.forEach(button => {
         if (button.href.includes(currentLocation)) {
             button.style.textDecorationLine = 'underline';
-        } else {
-            button.style.textDecorationLine = 'none';
         }
     });
 }

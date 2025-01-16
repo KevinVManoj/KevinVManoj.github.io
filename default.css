@@ -158,74 +158,35 @@ li {
     margin: 10px auto; /* Centers images horizontally */
 }
 
-#CadImage1 {
-    width: 566px;
-}
-
-#CadImage2 {
-    width: 240px;
-}
-
-#CadImage3 {
-    width: 285px;
-}
-
-#CadImage4 {
-    width: 536px;
-}
-
-/* Container for the embedded Discord widget and the additional div */
-.iframe-container {
-    display: flex; /* Use flexbox layout */
-    justify-content: space-between; /* Space out the iframe and div */
-    align-items: flex-start; /* Align items at the start */
-    margin: 20px auto; /* Center container horizontally and add margin */
-    width: 80%; /* Adjust container width as needed */
-    gap: 20px; /* Add space between the iframe and div */
-    flex-wrap: nowrap; /* Ensure items don't wrap to the next line */
-}
-
-/* Style for the Discord iframe */
-.iframe-container iframe {
-    flex: 0 1 350px; /* Flex basis of 350px, don't grow or shrink */
-    height: 500px; /* Set height */
-}
-
-/* Style for the additional div */
-.iframe-container .elfsight-app-bdb80fdb-ce24-47e6-850b-54b204ef9e6c {
-    flex: 1; /* Allow div to take up remaining space */
-    background-color: #f4f4f4; /* Light background color for contrast */
-    padding: 10px; /* Add padding */
-    border: 1px solid #ccc; /* Border for definition */
-    min-width: 200px; /* Minimum width */
-}
-
-a:link {
-    color: blue;
-  }
-  
-  a:visited {
-    color: blue;
-  }
-  
-  a:hover {
-    color: green;
-  }
-  
-  a:link, a:visited {
-    text-decoration: none;
-  }
 
 
 /* Additional media query styles for responsiveness on tablets and phones */
-@media (max-width: 1024px) {
+@media (max-width: 1024px){
     /* Tablet-specific styles */
     main {
         margin-left: 0px; /* Removes left margin for better space utilization */
     }
 
+    #topSection {
+        height: 40vh; /* Full height of the viewport */
+    }
+
+    #topSection nav {
+        flex-direction: row; /* Changes the layout to horizontal */
+        justify-content: center; /* Centers the items horizontally */
+        align-items: center; /* Aligns items vertically in the center */
+        gap: 0px; /* Adds horizontal spacing between items */
+        overflow-x: auto; /* Allows scrolling if content exceeds screen width */
+        padding: 10px 0; /* Adds padding for better spacing */
+    }
+
+    #topSection .nav-button {
+        font-size: min(1.0vh, 20px); /* Adjusts font size for mobile screens */
+        padding: 5px 10px; /* Adds padding for better spacing */
+    }
+
     .contentRow1, .contentRow2 {
-        flex-direction: column; /* Stacks items vertically */
+        flex-direction: row; /* Stacks items vertically */
         align-items: center; /* Centers items within the container */
     }
 
@@ -261,26 +222,6 @@ a:link {
     
     .calendarMarg {
         margin-left: 0px;
-    }
-
-    #CadImage1 {
-        width: 270px;
-    }
-
-    #CadImage4 {
-        width: 300px; 
-    }
-
-    /* Style for the Discord iframe */
-    .iframe-container {
-        flex-direction: column; /* Stacks items vertically */
-        align-items: center; /* Centers items within the container */
-        gap: 10px; /* Adjust space between items */
-    }
-
-    .iframe-container iframe,
-    .iframe-container .elfsight-app-bdb80fdb-ce24-47e6-850b-54b204ef9e6c {
-        width: 100%; /* Full width for better display on mobile */
     }
 }
 
