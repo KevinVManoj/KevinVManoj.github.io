@@ -33,6 +33,10 @@
 
 html { scroll-behavior: smooth; }
 
+.page-wrapper {
+  transform: scale(0.9);          
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -741,5 +745,32 @@ body.events .styled-calendar-container {
   .cad-gallery img {
     width: 100%;
     height: auto;
+  }
+}
+
+/* Mobile/tablet: header scrolls with the page (not sticky) */
+@media (max-width: 1024px) {
+  #topSection {
+    position: static;       /* <-- was sticky */
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  /* keep the rest of your mobile layout as-is */
+  main {
+    margin-left: 0;
+    width: 100%;
+  }
+  #topSection nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5rem;
+    overflow: visible;
+    padding: .5rem 0 1rem;
   }
 }

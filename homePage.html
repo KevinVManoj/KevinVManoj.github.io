@@ -14,8 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-    <!-- ===== Header placeholder (auto-loaded from /components/header.html) ===== -->
-    <div id="header"></div>
+    <!-- ===== Header placeholder (consistent across pages) ===== -->
+    <div id="topSection" data-include="components/header.html"></div>
 
     <!-- ===== Main Content ===== -->
     <main>
@@ -48,32 +48,8 @@
         </div>
     </main>
 
-    <!-- ===== Header Include Script ===== -->
-    <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-        try {
-            const res = await fetch('components/header.html');
-            const html = await res.text();
-
-            // Replace placeholder div entirely to avoid duplicate IDs
-            const placeholder = document.getElementById('header');
-            placeholder.outerHTML = html;
-
-            // Highlight the active navigation link
-            const path = location.pathname.split('/').pop() || 'homePage.html';
-            const navLinks = document.querySelectorAll('#topSection nav a.nav-button');
-            navLinks.forEach(a => {
-                const isActive = a.getAttribute('href') === path;
-                if (isActive) {
-                    a.setAttribute('aria-current', 'page');
-                    a.classList.add('is-active');
-                }
-            });
-        } catch (err) {
-            console.error('Header include failed:', err);
-        }
-    });
-    </script>
+    <!-- ===== HTML Include Script (same as other pages) ===== -->
+    <script src="scripts/HTMLInclude.js" defer></script>
 
     <!-- ===== Simple Slideshow Script ===== -->
     <script>
