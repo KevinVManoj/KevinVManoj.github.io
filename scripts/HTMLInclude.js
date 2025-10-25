@@ -13,12 +13,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //makes it so the page you are on is highlighted
 function updateActiveLink() {
-    const navButtons = document.querySelectorAll('.nav-button');
-    const currentLocation = window.location.pathname;
+  const navButtons = document.querySelectorAll('.nav-button');
 
-    navButtons.forEach(button => {
-        if (button.href.includes(currentLocation)) {
-            button.style.textDecorationLine = 'underline';
-        }
-    });
+  // current file (default to index.html)
+  const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const isHome =
+    current === '' ||
+    current === 'index.html' ||
+    current === 'homepage.html' ||
+    current === 'homepage' ||
+    current === 'homepage.htm' ||
+    current === 'homepage.php' ||
+    current === 'homepage.aspx';
+
+  navButtons.forEach(a => {
+    const target = (a.getAttribute('href') || '').split('/').pop().toLowerCase();
+
+    const match =
+      target === current ||
+      (isHome && (target === 'index.html' || target === 'homepage.html' || target === 'homepage'));
+
+    if (match) {
+      a.classList.add('is-active');          // <-- white pill via CSS
+      a.setAttribute('aria-current', 'page');
+      a.style.textDecorationLine = '';       // remove old underline styling if present
+    } else {
+      a.classList.remove('is-active');
+      a.removeAttribute('aria-current');
+      a.style.textDecorationLine = '';
+    }
+  });
 }

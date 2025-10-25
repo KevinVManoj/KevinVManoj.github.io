@@ -1,313 +1,745 @@
-/* Global styles */
+/* =========================================================
+   Variables & global
+   ========================================================= */
+:root {
+  --sidebar-w: 200px;
+
+  --bg: #bbe0b8;                  /* green background */
+  --text: #0f4d12;                /* deep green */
+  --muted: #6a7a6a;
+
+  --accent: #f6d24b;              /* softer gold */
+  --accent-strong: #e9c21a;
+
+  --bg-card: #ffffff;
+  --ring: rgba(16, 94, 23, .25);
+  --shadow: 0 10px 25px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.05);
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  --space-1: .5rem;
+  --space-2: .75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
 * {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Applies a uniform font across all elements */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* Background color for the entire webpage */
+html { scroll-behavior: smooth; }
+
 body {
-    background-color: rgb(187, 224, 184); /* Soft green color for a soothing background */
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-/* Main content area styling */
-main {
-    margin-left: 200px; /* Offset from the left to accommodate a sidebar or navigation */
-}
+p { text-align: center; font-size: 20px; }
+li { font-size: 20px; }
 
-/* Paragraph styles */
-p {
-    text-align: center; /* Central alignment for readability */
-    font-size: 20px; /* Moderate font size for content legibility */
-}
+/* Headings */
+h1, h2, h3 { text-align: center; letter-spacing: .2px; color: var(--text); margin-block: var(--space-3); }
+h1 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.25; }
+h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+h3 { font-size: clamp(1.15rem, 2.2vw, 1.35rem); color: var(--muted); }
 
-/* Heading level 2 styles */
-h2 {
-    text-align: center; /* Ensures titles are center-aligned */
-    font-size: 30px; /* Prominent size for section titles */
-}
-
-/* Heading level 1 styles */
-h1 {
-    text-align: center; /* Center alignment for main headings */
-}
-
-/* Styling for the header section */
+/* =========================================================
+   Sidebar / Header (left on desktop, top on mobile)
+   ========================================================= */
 #topSection {
-    background-color: gold; /* Distinguishing color for visual emphasis */
-    margin: 0; /* Eliminates default margin */
-    position: fixed; /* Fixed position to keep it visible on scroll */
-    top: 0; /* Anchored to the top of the viewport */
-    left: 0; /* Anchored to the left of the viewport */
-    width: 200px; /* Specific width for uniformity */
-    height: 100vh; /* Full height of the viewport */
-    max-height: 2000px; /* Limits the maximum height */
-    z-index: 1000; /* Ensures it layers above other content */
-    display: flex; /* Enables flexible box layout */
-    flex-direction: column; /* Stacks child elements vertically */
+  position: fixed;
+  inset: 0 auto 0 0;              /* top:0 right:auto bottom:0 left:0 */
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+  border-right: 1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  padding-bottom: var(--space-3);
 }
 
-/* Navigation styles within the header */
-#topSection nav {
-    flex-grow: 1; /* Fills the available space in the flex container */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Aligns items to the start of the navigation */
-    align-items: center; /* Centers items horizontally */
-    gap: 5.5vh; /* Consistent vertical spacing between items */
-    overflow-y: auto; /* Allows scrolling if content exceeds the element's height */
-    padding: 10px 0; /* Padding on the top and bottom for spacing */
-}
-
-/* Button styles in the navigation */
-#topSection .nav-button {
-    color: green; /* Green color for text */
-    text-decoration: none; /* Removes underline from text */
-    background-color: transparent; /* No background color */
-    cursor: pointer; /* Changes cursor to pointer on hover */
-    font-size: min(3vh, 30px); /* Responsive font size, smaller of viewport height or 30px */
-    font-weight: bolder; /* Bold font for emphasis */
-}
-
-/* Logo styles */
-#logo {
-    max-height: 20vh; /* Limits the height relative to the viewport */
-    max-width: 90%; /* Limits the width to 90% of its container */
-    align-self: center; /* Centers the logo within its container */
-}
-
-/* Additional menu title styling */
 #menuTitle {
-    color: green; /* Text color */
-    text-align: center; /* Center-aligned text */
-    font-size: min(4.25vh, 60px); /* Responsive font size, smaller of viewport height or 60px */
-    background-color: white; /* Background color */
-    border: 5px solid black; /* Border styling */
-    padding: 10px; /* Internal spacing around text */
-    margin-bottom: 10px; /* Space below the title */
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Includes padding and border in width and height calculations */
+  color: green;
+  text-align: center;
+  font-size: clamp(1.5rem, 4.25vh, 3.75rem);
+  background: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  padding: 10px;
+  margin: var(--space-3) auto var(--space-2);
+  width: calc(100% - 1rem);
 }
 
-/* Specialized content layout styles for various pages */
-.homeImage1 {
-    width: 75vw; /* Responsive width, 75% of the viewport width */
-    display: block;
-    margin-left: auto;
-    margin-right: auto; /* Centers the image */
-}
-
-/* Style for boxes containing content on the home page */
-.homebox1 {
-    margin-left: auto;
-    margin-right: auto; /* Centers the box */
-    height: 100px;
-    width: 75vw; /* Responsive width, similar to the homeImage1 */
-}
-
-/* List item styles on the 'About Us' page */
-li {
-    margin-left: 1vw; /* Small left margin for list items */
-    font-size: 20px; /* Consistent font size with paragraphs */
-}
-
-/* Container styles */
-.container {
-    width: 100%; /* Full width */
-    max-width: 600px; /* Maximum width set for better layout control */
-    margin: auto; /* Centers the container */
-    overflow: hidden; /* Hides any overflowed content */
-}
-
-/* Styles for slide components, used on multiple pages */
-.slides {
-    display: none; /* Hidden by default, shown via JavaScript */
-    width: 100%; /* Full width */
-}
-
-/* Calendar container styles specific to the 'Event Page' */
-.styled-calendar-container {
-    width: 80%; /* Width as a percentage of its parent */
-    border: none; /* No border */
-    margin-left: 200px; /* Left margin for alignment */
-}
-
-/* Grid layout for contact information on the 'Contact Page' */
-.contact-grid {
-    display: grid; /* Grid display */
-    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
-    gap: 20px; /* Space between grid items */
-    padding: 20px; /* Padding inside the grid container */
-    margin: auto; /* Centers images horizontally */
-}   
-
-/* Block styles within the contact grid */
-.contact-block {
-    background-color: #f4f4f4; /* Light gray background for contrast */
-    border: 2px solid #ccc; /* Subtle border for definition */
-    padding: 10px; /* Padding around content */
-    text-align: center; /* Centers the text inside each block */
-    
-}
-
-/* Image styles within contact blocks */
-.contact-block img {
-    width: 100px; /* Fixed width */
-    height: 100px; /* Fixed height */
-    object-fit: cover; /* Ensures images cover the area without distortion */
-    border-radius: 50%; /* Makes images circular */
-    margin: 10px auto; /* Centers images horizontally */
-}
-
-
-
-/* Additional media query styles for responsiveness on tablets and phones */
-@media (max-width: 1024px) {
-    #topSection {
-        background-color: gold; /* Distinguishing color for visual emphasis */
-        margin: 0; /* Eliminates default margin */
-        position: fixed; /* Fixed position to keep it visible on scroll */
-        top: 0; /* Anchored to the top of the viewport */
-        left: 0; /* Anchored to the left of the viewport */
-        width: 200px; /* Specific width for uniformity */
-        height: 45vh; /* Full height of the viewport */
-        max-height: 2000px; /* Limits the maximum height */
-        z-index: 1000; /* Ensures it layers above other content */
-        display: flex; /* Enables flexible box layout */
-        flex-direction: column; /* Stacks child elements vertically */
-    }
-
-    /* Navigation styles within the header */
 #topSection nav {
-    flex-grow: 1; /* Fills the available space in the flex container */
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Aligns items to the start of the navigation */
-    align-items: center; /* Centers items horizontally */
-    gap: 5.5vh; /* Consistent vertical spacing between items */
-    overflow-y: auto; /* Allows scrolling if content exceeds the element's height */
-    padding: 10px 0; /* Padding on the top and bottom for spacing */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-3);
+  overflow-y: auto;
+  padding: 10px 0;         
+  scrollbar-width: none;
 }
 
 #topSection .nav-button {
-    color: green; /* Green color for text */
-    text-decoration: none; /* Removes underline from text */
-    background-color: transparent; /* No background color */
-    cursor: pointer; /* Changes cursor to pointer on hover */
-    font-size: min(2vw, 30px); /* Responsive font size, smaller of viewport height or 30px */
-    font-weight: bolder; /* Bold font for emphasis */
-    text-align: center;
+  color: #0d530d;
+  text-decoration: none;
+  background: rgba(255,255,255,.3);
+  font-weight: 800;
+  font-size: min(3vh, 30px);
+  cursor: pointer;
+  display: inline-block;
+  padding: .5rem .9rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.06);
+  transition: transform .08s ease, background-color .15s ease, box-shadow .15s ease;
+}
+#topSection .nav-button:hover {
+  background: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+#topSection .nav-button.is-active,
+#topSection .nav-button[aria-current="page"] {
+  background: #fff;
+  outline: 3px solid var(--ring);
 }
 
+#logo {
+  max-height: 20vh;
+  max-width: 90%;
+  align-self: center;
+}
 
-    /* Tablet-specific styles */
-    main {
-        margin-left: 0px; /* Removes left margin for better space utilization */
-    }
+/* =========================================================
+   Main layout — centered middle column in green area
+   ========================================================= */
+main {
+  /* Green area sizing */
+  margin-left: var(--sidebar-w);
+  width: calc(100% - var(--sidebar-w));
+  box-sizing: border-box;
+  padding-inline: 2rem;
+  padding-block: var(--space-4);
 
-    #topSection {
-        height: 40vh; /* Full height of the viewport */
-    }
+  /* Center column */
+  display: grid;
+  grid-template-columns: 1fr min(1000px, 100%) 1fr; /* gutter | center | gutter */
+  column-gap: 2rem;
+  row-gap: 1.25rem;
+}
+main > * { grid-column: 2; }      /* force children into centered column */
 
-    #topSection nav {
-        flex-direction: row; /* Changes the layout to horizontal */
-        justify-content: center; /* Centers the items horizontally */
-        align-items: center; /* Aligns items vertically in the center */
-        gap: 0px; /* Adds horizontal spacing between items */
-        overflow-x: auto; /* Allows scrolling if content exceeds screen width */
-        padding: 10px 0; /* Adds padding for better spacing */
-    }
-
-    #topSection .nav-button {
-        font-size: min(1.0vh, 20px); /* Adjusts font size for mobile screens */
-        padding: 5px 10px; /* Adds padding for better spacing */
-    }
-
-    .contentRow1, .contentRow2 {
-        flex-direction: line; /* Stacks items vertically */
-        align-items: center; /* Centers items within the container */
-    }
-
-    .homepageH1Box, .homepageH2Box {
-        width: 95%; /* Adjusts width for tablet screens */
-    }
-
-    .homeImage1, .homeImage2 {
-        width: 100%; /* Full width for images on smaller screens */
-    }
-
-    #topSection {
-        position: static; /* Makes the section flow with other content */
-        width: 100%; /* Full width */
-    }
-
-    .styled-calendar-container {
-        width: 95%; /* Adjusts width for consistency */
-        margin-left: 2.5%; /* Centers the calendar */
-    }
-
-    .eventh2 {
-        margin-left: 15px; /* Adjusts left margin for event headings */
-    }
-
-    .contact-grid {
-        margin-left: 0px; /* Removes left margin for better alignment */
-    }
-
-    .contacth1 {
-        text-align: center; /* Centers the contact heading */
-    }
-    
-    .calendarMarg {
-        margin-left: 0px;
-    }
-
-    #CadImage1 {
-        width: 270px;
-    }
-
-    #CadImage4 {
-        width: 300px; 
-    }
-
-    /* Style for the Discord iframe */
-    .iframe-container {
-        flex-direction: column; /* Stacks items vertically */
-        align-items: center; /* Centers items within the container */
-        gap: 10px; /* Adjust space between items */
-    }
-
-    .iframe-container iframe,
-    .iframe-container .elfsight-app-bdb80fdb-ce24-47e6-850b-54b204ef9e6c {
-        width: 100%; /* Full width for better display on mobile */
-    }
-
-    /* Grid layout for contact information on the 'Contact Page' */
-.contact-grid {
-    display: grid; /* Grid display */
-    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
-    gap: 0px; /* Space between grid items */
-    padding: 0px; /* Padding inside the grid container */
-    margin: auto; /* Centers images horizontally */
-}   
-
-/* Block styles within the contact grid */
+/* =========================================================
+   Components
+   ========================================================= */
+/* Cards */
+.homebox1,
 .contact-block {
-    background-color: #f4f4f4; /* Light gray background for contrast */
-    border: 2px solid #ccc; /* Subtle border for definition */
-    padding: 0px; /* Padding around content */
-    text-align: center; /* Centers the text inside each block */
-    
+  background: var(--bg-card);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: var(--space-4);
+  width: 100%;
+  max-width: 1000px;
+  margin: 1rem auto 0;
+  height: auto;
 }
 
-/* Image styles within contact blocks */
+/* Contact grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  padding: var(--space-4);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 .contact-block img {
-    width: 100px; /* Fixed width */
-    height: 100px; /* Fixed height */
-    object-fit: cover; /* Ensures images cover the area without distortion */
-    border-radius: 50%; /* Makes images circular */
-    margin: 10px auto; /* Centers images horizontally */
+  width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin: 10px auto; display: block;
 }
 
-
-
+/* Calendar */
+.styled-calendar-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: none;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  padding: var(--space-2);
 }
 
+/* Containers / images */
+.container { width: 100%; max-width: 600px; margin: 0 auto; overflow: hidden; }
+.homeImage1,
+.container img,
+#CadImage1,
+#CadImage4 {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+/* Slideshow (works with your JS that toggles block/none) */
+#slideshow { width: 100%; display: grid; justify-items: center; align-items: start; row-gap: 1rem; }
+#slideshow .slides { display: none; width: 100%; max-width: 1000px; margin: 0 auto; }
+#slideshow .slides img { display: block; width: 100%; max-width: 1000px; height: auto; margin: 0 auto; }
+#slideshow .homeImage1 { width: 100% !important; }  /* override old 75vw */
+
+/* Accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+/* Tablet & small laptops */
+@media (max-width: 1024px) {
+  /* Sidebar becomes top bar */
+  #topSection {
+    position: sticky;
+    top: 0; left: 0; right: 0;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding-bottom: .5rem;
+  }
+  #topSection nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    overflow: visible;
+    padding: .5rem 0 1rem;
+  }
+  #topSection .nav-button { font-size: clamp(.9rem, 1.8vw, 1.05rem); padding: .4rem .7rem; }
+
+  /* Main column centered to viewport */
+  main {
+    margin-left: 0;
+    width: 100%;
+    padding-inline: 1rem;
+    grid-template-columns: 1fr min(900px, 92vw) 1fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    align-content: start;
+  }
+
+  /* Media scales cleanly */
+  p, li { font-size: clamp(0.95rem, 2.6vw, 1.05rem); }
+  .homebox1, .styled-calendar-container, .contact-grid { max-width: min(900px, 92vw); }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Phones */
+@media (max-width: 680px) {
+  main {
+    grid-template-columns: 1fr min(620px, 94vw) 1fr;
+    padding-inline: .75rem;
+    column-gap: .75rem;
+    row-gap: .75rem;
+  }
+  h1 { font-size: clamp(1.2rem, 5.5vw, 1.6rem); margin-top: .75rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: .75rem; padding: .75rem; }
+  .styled-calendar-container { max-width: 94vw; padding: .5rem; min-height: 60vh; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* =========================================
+   ABOUT US PAGE SLIDESHOW ENHANCEMENT
+   ========================================= */
+
+/* Make the slideshow wider and more prominent */
+body.about-us #slideshow,
+body.about-us #slideshow .slides {
+  max-width: 2000px;   /* larger on desktop */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Scale up the images smoothly while staying responsive */
+body.about-us #slideshow .slides img {
+  width: 100%;
+  max-width: 0200px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjust layout spacing so it feels more balanced */
+body.about-us main {
+  grid-template-columns: 1fr min(1200px, 100%) 1fr;
+}
+
+/* On smaller screens, gracefully scale down */
+@media (max-width: 1024px) {
+  body.about-us #slideshow .slides img {
+    max-width: min(900px, 92vw);
+  }
+}
+@media (max-width: 680px) {
+  body.about-us #slideshow .slides img {
+    max-width: min(620px, 94vw);
+  }
+}
+
+/* =========================================
+   ABOUT US PAGE — BIGGER SLIDESHOW
+   ========================================= */
+
+body.about-us #slideshow,
+body.about-us #slideshow .slides {
+  width: 100%;
+  max-width: 1600px;   /* increased from 1200px → 1600px */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.about-us #slideshow .slides img {
+  width: 100%;
+  max-width: 1600px;   /* full 1600px desktop size */
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+/* Optional: subtle zoom on hover for interactivity */
+body.about-us #slideshow .slides img:hover {
+  transform: scale(1.02);
+}
+
+/* Ensure main grid expands with the larger slideshow */
+body.about-us main {
+  grid-template-columns: 1fr min(1600px, 100%) 1fr;
+  row-gap: 1.5rem;
+}
+
+/* Keep mobile/tablet scaling nice */
+@media (max-width: 1200px) {
+  body.about-us #slideshow .slides img {
+    max-width: min(1100px, 95vw);
+  }
+}
+@media (max-width: 900px) {
+  body.about-us #slideshow .slides img {
+    max-width: min(800px, 94vw);
+  }
+}
+@media (max-width: 680px) {
+  body.about-us #slideshow .slides img {
+    max-width: min(620px, 94vw);
+  }
+}
+
+/* ===== About Us — make slideshow BIG and ignore inline widths ===== */
+body.about-us .container {
+  max-width: 1600px;      /* grow the slideshow area on desktop */
+  width: 100%;
+}
+
+body.about-us .slides {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+body.about-us .slides img {
+  width: 100% !important;   /* override inline width="90%" etc. */
+  height: auto !important;  /* keep aspect ratio */
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
+
+/* Make the centered column wide enough to accommodate the larger slideshow */
+body.about-us main {
+  grid-template-columns: 1fr min(1600px, 100%) 1fr;
+}
+
+/* Scale down gracefully on smaller screens */
+@media (max-width: 1200px) {
+  body.about-us .slides,
+  body.about-us .slides img { max-width: min(1100px, 95vw); }
+  body.about-us main { grid-template-columns: 1fr min(1100px, 95vw) 1fr; }
+}
+@media (max-width: 900px) {
+  body.about-us .slides,
+  body.about-us .slides img { max-width: min(800px, 94vw); }
+  body.about-us main { grid-template-columns: 1fr min(800px, 94vw) 1fr; }
+}
+@media (max-width: 680px) {
+  body.about-us .slides,
+  body.about-us .slides img { max-width: min(620px, 94vw); }
+  body.about-us main { grid-template-columns: 1fr min(620px, 94vw) 1fr; }
+}
+
+/* ===== About Us — Bigger, Nicer Captions ===== */
+body.about-us .caption {
+  font-size: 1.2rem;              /* larger text for readability */
+  font-weight: 600;               /* make it stand out */
+  color: #0b4e0b;                 /* deep green to match your theme */
+  text-align: center;
+  margin-top: 0.75rem;            /* space between image and caption */
+  background-color: rgba(255, 255, 255, 0.85); /* subtle white backing */
+  display: inline-block;
+  padding: 0.5rem 1rem;           /* some internal space */
+  border-radius: 10px;            /* smooth rounded corners */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Optional: make captions responsive on smaller screens */
+@media (max-width: 680px) {
+  body.about-us .caption {
+    font-size: 1rem;
+    padding: 0.4rem 0.75rem;
+  }
+}
+
+/* ===== Events Page — Center Calendar on Page ===== */
+body.events main {
+  display: grid;
+  grid-template-columns: 1fr min(1000px, calc(100vw - 200px - 4rem)) 1fr; /* centers between sidebar & right edge */
+  justify-items: center;
+  align-items: start;
+  padding: 2rem;
+  column-gap: 2rem;
+}
+
+body.events main > * {
+  grid-column: 2;
+}
+
+/* Center the calendar container itself */
+body.events .styled-calendar-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  background: var(--bg-card, #fff);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* On smaller screens, center calendar full width */
+@media (max-width: 1024px) {
+  body.events main {
+    grid-template-columns: 1fr min(900px, 92vw) 1fr;
+    padding: 1rem;
+  }
+  body.events .styled-calendar-container {
+    max-width: min(900px, 92vw);
+  }
+}
+
+@media (max-width: 680px) {
+  body.events main {
+    grid-template-columns: 1fr min(620px, 94vw) 1fr;
+    padding: .75rem;
+  }
+  body.events .styled-calendar-container {
+    max-width: min(620px, 94vw);
+  }
+}
+
+/* ===== Events page: center the calendar under the heading ===== */
+
+/* Treat the green area to the right of the sidebar as a centered grid */
+.calendarMarg {
+  margin-left: var(--sidebar-w);              /* same offset as main */
+  width: calc(100% - var(--sidebar-w));       /* green panel width */
+  display: grid;
+  grid-template-columns: 1fr min(1000px, 100%) 1fr;  /* gutter | center | gutter */
+  column-gap: 2rem;
+  justify-items: center;
+  align-items: start;
+}
+
+/* Put the iframe container in the middle column */
+.calendarMarg > * { grid-column: 2; }
+
+/* Neutralize any old left margins and center the calendar box */
+.styled-calendar-container {
+  margin: 0 auto !important;      /* override old margin-left:200px */
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+/* Tablet: header is on top, center to viewport */
+@media (max-width: 1024px) {
+  .calendarMarg {
+    margin-left: 0;
+    width: 100%;
+    grid-template-columns: 1fr min(900px, 92vw) 1fr;
+    column-gap: 1rem;
+  }
+  .styled-calendar-container { max-width: min(900px, 92vw); }
+}
+
+/* Phones */
+@media (max-width: 680px) {
+  .calendarMarg {
+    grid-template-columns: 1fr min(620px, 94vw) 1fr;
+    column-gap: .75rem;
+  }
+  .styled-calendar-container { max-width: min(620px, 94vw); }
+}
+
+/* ===== Events page — make calendar align with the heading in <main> ===== */
+
+/* Mirror <main>'s layout on the green panel */
+.calendarMarg {
+  margin-left: var(--sidebar-w);             /* same offset as main */
+  width: calc(100% - var(--sidebar-w));      /* same green-panel width */
+  padding-inline: 2rem;                      /* match main's side padding */
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1fr min(1000px, 100%) 1fr;  /* gutter | centered column | gutter */
+  column-gap: 2rem;
+  justify-items: center;
+  align-items: start;
+}
+
+/* Put the iframe container into the centered column */
+.calendarMarg > * { grid-column: 2; }
+
+/* Neutralize any old offsets */
+.styled-calendar-container {
+  margin: 0 auto !important;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .calendarMarg {
+    margin-left: 0;
+    width: 100%;
+    padding-inline: 1rem;                     /* match main at this breakpoint */
+    grid-template-columns: 1fr min(900px, 92vw) 1fr;
+    column-gap: 1rem;
+  }
+  .styled-calendar-container { max-width: min(900px, 92vw); }
+}
+
+/* Phones */
+@media (max-width: 680px) {
+  .calendarMarg {
+    grid-template-columns: 1fr min(620px, 94vw) 1fr;
+    padding-inline: .75rem;                   /* match main at this breakpoint */
+    column-gap: .75rem;
+  }
+  .styled-calendar-container { max-width: min(620px, 94vw); }
+}
+
+/* ===== Events page: perfectly align calendar with the heading ===== */
+.calendarMarg {
+  /* override inline styles */
+  display: grid !important;
+  width: calc(100% - var(--sidebar-w)) !important;
+  margin-left: var(--sidebar-w) !important;
+  text-align: initial !important;
+
+  /* match <main>'s centered-column layout */
+  padding-inline: 2rem;
+  box-sizing: border-box;
+  grid-template-columns: 1fr min(1000px, 100%) 1fr; /* gutter | center | gutter */
+  column-gap: 2rem;
+  justify-items: center;
+  align-items: start;
+}
+
+/* put the iframe in the centered column */
+.calendarMarg > * { grid-column: 2; }
+
+/* neutralize any old offsets */
+.styled-calendar-container {
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 1000px !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .calendarMarg {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding-inline: 1rem;
+    grid-template-columns: 1fr min(900px, 92vw) 1fr;
+    column-gap: 1rem;
+  }
+  .styled-calendar-container { max-width: min(900px, 92vw) !important; }
+}
+
+/* Phones */
+@media (max-width: 680px) {
+  .calendarMarg {
+    padding-inline: .75rem;
+    grid-template-columns: 1fr min(620px, 94vw) 1fr;
+    column-gap: .75rem;
+  }
+  .styled-calendar-container { max-width: min(620px, 94vw) !important; }
+}
+
+/* ===== Join Us Page Layout ===== */
+
+/* Wrap the Discord and Instagram widgets in a shared container */
+.join-widgets {
+  display: flex;
+  justify-content: center;        /* center horizontally within main */
+  align-items: flex-start;
+  gap: 2rem;                      /* space between Discord + Instagram */
+  flex-wrap: wrap;                /* allow stacking on smaller screens */
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Ensure each widget (Discord or Instagram) fits cleanly in layout */
+.join-widgets > * {
+  flex: 1 1 350px;                /* flexible but min 350px width */
+  max-width: 500px;               /* avoid getting too wide on large screens */
+}
+
+/* Give Discord iframe a nice centered card look */
+.join-widgets iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* LinkedIn stays above both widgets */
+.elfsight-app-bc4a9b82-49ee-4257-b938-939827eb31f0 {
+  display: block;
+  margin: 0 auto 2rem auto;
+  max-width: 1000px;
+}
+
+/* Responsive refinement: stack vertically on smaller devices */
+@media (max-width: 900px) {
+  .join-widgets {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .join-widgets > * {
+    max-width: 90vw;
+  }
+}
+
+/* ===== CAD Images Layout ===== */
+
+.cad-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+/* Ensure all images resize fluidly */
+.cad-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Captions below each image */
+.cad-gallery .caption {
+  text-align: center;
+  font-size: 1rem;
+  color: #1a3d1a;
+  margin-top: 0.5rem;
+}
+
+/* ===== Mobile Optimization ===== */
+@media (max-width: 768px) {
+  .cad-gallery {
+    grid-template-columns: 1fr;  /* stack images vertically */
+    max-width: 90vw;
+    gap: 1rem;
+  }
+
+  .cad-gallery img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* =========================
+   UNIVERSAL CAD GALLERY STYLE
+   ========================= */
+.cad-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 1200px;
+  width: 90%;
+}
+
+/* Make images responsive and clean */
+.cad-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  object-fit: contain;
+  background-color: white;
+  padding: 4px;
+}
+
+/* Adjust for mobile devices */
+@media (max-width: 768px) {
+  .cad-gallery {
+    grid-template-columns: 1fr;   /* stack vertically */
+    gap: 1rem;
+    max-width: 95vw;
+  }
+
+  .cad-gallery img {
+    width: 100%;
+    height: auto;
+  }
+}

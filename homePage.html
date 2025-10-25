@@ -1,62 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Title and Meta Tags -->
-        <title>Duck Duck Goose's MECC Home Page</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!-- External CSS and JavaScript -->
-        <link rel="stylesheet" href="default.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="images/DDG_Logo.png">
-    </head>
-    <body>
-        <!-- Top Section Placeholder (potentially for navigation or header) -->
-        <div id='topSection'></div>
+<head>
+    <!-- ===== Metadata & Title ===== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duck Duck Goose's MECC Home Page</title>
 
-        <!-- Main content area -->
-        <main>
-            <!-- Primary welcome message -->
-            <h1>Welcome to the University of North Carolina's MECC Club!</h1>
-            
-            <!-- Image slider section -->
-            <div>
-                <!-- Individual slide item -->
-                <div class="slides" style="display: flex; justify-content: center; align-items: center;">
-                    <img class="homeImage1" src="images/Untitled.png" alt="Group Photo">
-                </div>
-                
-                <!-- Individual slide item -->
-                <div class="slides" style="display: flex; justify-content: center; align-items: center;">
-                    <img class="homeImage1" src="images/Homepage-Denver_2_2512x1884.jpeg" alt="Group Photo 2">
-                </div>    
+    <!-- ===== Styles & Favicon ===== -->
+    <link rel="stylesheet" href="default.css">
+    <link rel="icon" type="image/x-icon" href="images/DDG_Logo.png">
 
-                <!-- Individual slide item -->
-                <div class="slides" style="display: flex; justify-content: center; align-items: center;">
-                    <img class="homeImage1" src="images/Resized_20250814_125648.jpg" alt="Group Photo 2">
-                </div>    
+    <!-- ===== jQuery (optional for future scripts) ===== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <!-- ===== Header placeholder (auto-loaded from /components/header.html) ===== -->
+    <div id="header"></div>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+        <h1>Welcome to the University of North Carolina's MECC Club!</h1>
+
+        <!-- ===== Slideshow Section ===== -->
+        <div id="slideshow">
+            <div class="slides centered-flex">
+                <img class="homeImage1" src="images/Untitled.png" alt="Group Photo">
             </div>
 
-            <!-- Information box -->
-            <div class="homebox1">
-                <!-- General information paragraph -->
-                <p class="homePagep">Hello! This is the website for the University of North Carolina's MECC Club aka team Duck Duck Goose. Here you will get all sorts of information about us as a club, the projects we work on, and the progress we make along the way. We hope this website serves you well. </p>
-                
-                <!-- Update and contact information paragraph -->
-                <p class="homePagep">Just a side note but this website is very much a work in progress and will continuously get updated as time goes on. Please reach out to Kevin Manoj (contact found on the "Contact us" page) with any suggestions/recommendations for the website.</p>
-                
-                <!-- Navigation guide paragraph -->
-                <p class="homePagep">The navigation bar on the left can be used to switch pages; this website is PC/tablet/mobile accessible.</p>
-                
-                <!-- Signature or note from the creator -->
-                <p class="homePagep">- Kevin Manoj</p>
+            <div class="slides centered-flex">
+                <img class="homeImage1" src="images/Homepage-Denver_2_2512x1884.jpeg" alt="Group Photo 2">
             </div>
-        </main>        
-        <!-- Scripts with defer attribute for asynchronous loading -->
-        <script src="scripts/slideshow.js" defer></script> <!-- Script for the slideshow-->
-        <script src="scripts/HTMLInclude.js" defer></script> <!-- Script for the header-->
-    </body>
+
+            <div class="slides centered-flex">
+                <img class="homeImage1" src="images/Resized_20250814_125648.jpg" alt="Group Photo 3">
+            </div>
+        </div>
+
+        <!-- ===== Info Section ===== -->
+        <div class="homebox1">
+            <p>Hello! This is the website for the University of North Carolina's MECC Club — also known as team Duck Duck Goose. Here you’ll find information about our club, projects, and progress throughout the year.</p>
+
+            <p>This website is a work in progress and will continue to be updated. Please reach out to <strong>Kevin Manoj</strong> (see the “Contact Us” page) with any suggestions or recommendations.</p>
+
+            <p>The navigation bar on the left can be used to switch pages; this site is fully PC, tablet, and mobile accessible.</p>
+
+            <p>– Kevin Manoj</p>
+        </div>
+    </main>
+
+    <!-- ===== Header Include Script ===== -->
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const res = await fetch('components/header.html');
+            const html = await res.text();
+
+            // Replace placeholder div entirely to avoid duplicate IDs
+            const placeholder = document.getElementById('header');
+            placeholder.outerHTML = html;
+
+            // Highlight the active navigation link
+            const path = location.pathname.split('/').pop() || 'homePage.html';
+            const navLinks = document.querySelectorAll('#topSection nav a.nav-button');
+            navLinks.forEach(a => {
+                const isActive = a.getAttribute('href') === path;
+                if (isActive) {
+                    a.setAttribute('aria-current', 'page');
+                    a.classList.add('is-active');
+                }
+            });
+        } catch (err) {
+            console.error('Header include failed:', err);
+        }
+    });
+    </script>
+
+    <!-- ===== Simple Slideshow Script ===== -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slides = Array.from(document.querySelectorAll('.slides'));
+        if (!slides.length) return;
+
+        let index = 0;
+        const showSlide = i => slides.forEach((s, j) => s.style.display = j === i ? 'block' : 'none');
+        const nextSlide = () => { index = (index + 1) % slides.length; showSlide(index); };
+
+        showSlide(index);
+        let timer = setInterval(nextSlide, 4000);
+
+        const container = document.getElementById('slideshow');
+        container.addEventListener('mouseenter', () => clearInterval(timer));
+        container.addEventListener('mouseleave', () => timer = setInterval(nextSlide, 4000));
+    });
+    </script>
+</body>
 </html>
